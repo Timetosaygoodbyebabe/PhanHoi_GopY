@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Camera, Video, Paperclip, Send, Loader2, CheckCircle2, ChevronDown } from 'lucide-react';
 import { Page } from 'zmp-ui';
 import logoImg from '../static/logo_tachnen.png';
@@ -12,6 +12,11 @@ function HomePage() {
     category: '',
     content: ''
   });
+  const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
+
+  const imageInputRef = useRef<HTMLInputElement>(null);
+  const videoInputRef = useRef<HTMLInputElement>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const categories = [
     { id: 'moitruong', name: 'Môi trường' },
@@ -36,22 +41,57 @@ function HomePage() {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const mockSubmit = async (e: React.FormEvent) => {
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files) {
+      const filesArray = Array.from(e.target.files);
+      setSelectedFiles(prev => [...prev, ...filesArray]);
+    }
+    // Reset input value to allow selecting the same file again
+    e.target.value = '';
+  };
+
+  const removeFile = (indexToRemove: number) => {
+    setSelectedFiles(prev => prev.filter((_, index) => index !== indexToRemove));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (isLoading) return;
 
     setIsLoading(true);
     setShowToast(false);
 
-    setTimeout(() => {
-      setIsLoading(false);
-      setShowToast(true);
-      // Optional: reset form
-      setFormData({ title: '', category: '', content: '' });
+    try {
+      const data = new FormData();
+      data.append('title', formData.title);
+      data.append('category', formData.category);
+      data.append('content', formData.content);
+      
+      selectedFiles.forEach(file => {
+        data.append('files', file);
+      });
 
-      // Hide toast after 3 seconds
-      setTimeout(() => setShowToast(false), 3000);
-    }, 1500);
+      const response = await fetch('http://localhost:3000/api/feedbacks', {
+        method: 'POST',
+        body: data,
+      });
+
+      const result = await response.json();
+
+      if (response.ok && result.success) {
+        setShowToast(true);
+        setFormData({ title: '', category: '', content: '' });
+        setSelectedFiles([]);
+        setTimeout(() => setShowToast(false), 3000);
+      } else {
+        alert('Có lỗi xảy ra: ' + (result.message || 'Vui lòng thử lại sau.'));
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('Không thể kết nối đến máy chủ. Vui lòng thử lại sau.');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -88,7 +128,7 @@ function HomePage() {
 
         {/* Main Content */}
         <main className="flex-1 overflow-y-auto no-scrollbar">
-          <form onSubmit={mockSubmit} className="p-4 flex flex-col gap-5">
+          <form onSubmit={handleSubmit} className="p-4 flex flex-col gap-5">
 
             <div className="flex flex-col gap-6">
               {/* Tiêu đề */}
@@ -158,20 +198,38 @@ function HomePage() {
             {/* Attachment Section */}
             <div className="flex flex-col gap-2 mt-2">
               <span className="text-base font-semibold text-gray-700 px-1">Đính kèm (tùy chọn)</span>
+              
+              {/* Hidden file inputs */}
+              <input type="file" accept="image/*" capture="environment" ref={imageInputRef} className="hidden" multiple onChange={handleFileChange} />
+              <input type="file" accept="video/*" capture="environment" ref={videoInputRef} className="hidden" multiple onChange={handleFileChange} />
+              <input type="file" ref={fileInputRef} className="hidden" multiple onChange={handleFileChange} />
+
               <div className="flex gap-3">
-                <button type="button" className="flex-1 flex flex-col items-center justify-center gap-2 py-4 bg-blue-50 text-blue-600 rounded-xl border border-blue-100 active:bg-blue-100 transition-colors">
+                <button type="button" onClick={() => imageInputRef.current?.click()} className="flex-1 flex flex-col items-center justify-center gap-2 py-4 bg-blue-50 text-blue-600 rounded-xl border border-blue-100 active:bg-blue-100 transition-colors">
                   <Camera className="w-6 h-6" />
-                  <span className="text-sm font-medium">Add Ảnh</span>
+                  <span className="text-sm font-medium">Thêm Ảnh</span>
                 </button>
-                <button type="button" className="flex-1 flex flex-col items-center justify-center gap-2 py-4 bg-blue-50 text-blue-600 rounded-xl border border-blue-100 active:bg-blue-100 transition-colors">
+                <button type="button" onClick={() => videoInputRef.current?.click()} className="flex-1 flex flex-col items-center justify-center gap-2 py-4 bg-blue-50 text-blue-600 rounded-xl border border-blue-100 active:bg-blue-100 transition-colors">
                   <Video className="w-6 h-6" />
-                  <span className="text-sm font-medium">Add Video</span>
+                  <span className="text-sm font-medium">Thêm Video</span>
                 </button>
-                <button type="button" className="flex-1 flex flex-col items-center justify-center gap-2 py-4 bg-blue-50 text-blue-600 rounded-xl border border-blue-100 active:bg-blue-100 transition-colors">
+                <button type="button" onClick={() => fileInputRef.current?.click()} className="flex-1 flex flex-col items-center justify-center gap-2 py-4 bg-blue-50 text-blue-600 rounded-xl border border-blue-100 active:bg-blue-100 transition-colors">
                   <Paperclip className="w-6 h-6" />
                   <span className="text-sm font-medium">Tệp đính kèm</span>
                 </button>
               </div>
+
+              {/* Hiển thị danh sách file đã chọn */}
+              {selectedFiles.length > 0 && (
+                <div className="flex flex-col gap-2 mt-3">
+                  {selectedFiles.map((file, idx) => (
+                    <div key={idx} className="flex justify-between items-center bg-gray-50 p-2 rounded border border-gray-200">
+                      <span className="text-sm text-gray-700 truncate max-w-[80%]">{file.name}</span>
+                      <button type="button" onClick={() => removeFile(idx)} className="text-red-500 text-sm font-bold px-2 py-1 hover:text-red-700">X</button>
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
 
             {/* Spacer for bottom padding */}
@@ -182,7 +240,7 @@ function HomePage() {
         {/* Footer with Submit Button */}
         <div className="p-4 bg-white border-t border-gray-100 sticky bottom-0 z-40">
           <button
-            onClick={mockSubmit}
+            onClick={handleSubmit}
             disabled={isLoading}
             className={`w-full flex items-center justify-center gap-2 py-3.5 rounded-xl text-white font-semibold text-[15px] shadow-md transition-all active:scale-[0.98] ${isLoading ? 'bg-blue-400 cursor-not-allowed' : 'bg-blue-600 hover:bg-blue-700'
               }`}
