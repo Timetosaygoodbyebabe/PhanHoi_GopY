@@ -7,7 +7,6 @@ function HomePage() {
   const [isLoading, setIsLoading] = useState(false);
   const [showToast, setShowToast] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [isFileDropdownOpen, setIsFileDropdownOpen] = useState(false);
   const [formData, setFormData] = useState({
     title: '',
     category: '',
@@ -17,8 +16,7 @@ function HomePage() {
 
   const imageInputRef = useRef<HTMLInputElement>(null);
   const videoInputRef = useRef<HTMLInputElement>(null);
-  const galleryInputRef = useRef<HTMLInputElement>(null);
-  const documentInputRef = useRef<HTMLInputElement>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const categories = [
     { id: 'moitruong', name: 'Môi trường' },
@@ -204,8 +202,7 @@ function HomePage() {
               {/* Hidden file inputs */}
               <input type="file" accept="image/*" capture="environment" ref={imageInputRef} className="hidden" onChange={handleFileChange} />
               <input type="file" accept="video/*" capture="environment" ref={videoInputRef} className="hidden" onChange={handleFileChange} />
-              <input type="file" accept="image/*,video/*" ref={galleryInputRef} className="hidden" multiple onChange={handleFileChange} />
-              <input type="file" ref={documentInputRef} className="hidden" multiple onChange={handleFileChange} />
+              <input type="file" ref={fileInputRef} className="hidden" multiple onChange={handleFileChange} />
 
               <div className="flex gap-3">
                 <button type="button" onClick={() => imageInputRef.current?.click()} className="flex-1 flex flex-col items-center justify-center gap-2 py-4 bg-blue-50 text-blue-600 rounded-xl border border-blue-100 active:bg-blue-100 transition-colors">
@@ -216,37 +213,10 @@ function HomePage() {
                   <Video className="w-6 h-6" />
                   <span className="text-sm font-medium">Quay Video</span>
                 </button>
-                <div className="flex-1 relative flex flex-col">
-                  <button type="button" onClick={() => setIsFileDropdownOpen(!isFileDropdownOpen)} className="flex-1 flex flex-col items-center justify-center gap-2 py-4 bg-blue-50 text-blue-600 rounded-xl border border-blue-100 active:bg-blue-100 transition-colors">
-                    <Paperclip className="w-6 h-6" />
-                    <span className="text-sm font-medium">Tệp đính kèm</span>
-                  </button>
-
-                  {isFileDropdownOpen && (
-                    <div className="absolute bottom-full left-0 right-0 mb-2 bg-white border border-gray-200 rounded-xl shadow-lg z-50 overflow-hidden animate-fade-in-down whitespace-nowrap min-w-fit">
-                      <button
-                        type="button"
-                        onClick={() => {
-                          galleryInputRef.current?.click();
-                          setIsFileDropdownOpen(false);
-                        }}
-                        className="w-full text-center px-3 py-3 hover:bg-blue-50 transition-colors text-sm text-gray-700 border-b border-gray-100"
-                      >
-                        Tải ảnh, video
-                      </button>
-                      <button
-                        type="button"
-                        onClick={() => {
-                          documentInputRef.current?.click();
-                          setIsFileDropdownOpen(false);
-                        }}
-                        className="w-full text-center px-3 py-3 hover:bg-blue-50 transition-colors text-sm text-gray-700"
-                      >
-                        Tải file
-                      </button>
-                    </div>
-                  )}
-                </div>
+                <button type="button" onClick={() => fileInputRef.current?.click()} className="flex-1 flex flex-col items-center justify-center gap-2 py-4 bg-blue-50 text-blue-600 rounded-xl border border-blue-100 active:bg-blue-100 transition-colors">
+                  <Paperclip className="w-6 h-6" />
+                  <span className="text-sm font-medium">Tệp đính kèm</span>
+                </button>
               </div>
 
               {/* Hiển thị danh sách file đã chọn */}
