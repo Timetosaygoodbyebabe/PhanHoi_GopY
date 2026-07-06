@@ -200,18 +200,18 @@ function HomePage() {
               <span className="text-base font-semibold text-gray-700 px-1">Đính kèm (tùy chọn)</span>
               
               {/* Hidden file inputs */}
-              <input type="file" accept="image/*" capture="environment" ref={imageInputRef} className="hidden" multiple onChange={handleFileChange} />
-              <input type="file" accept="video/*" capture="environment" ref={videoInputRef} className="hidden" multiple onChange={handleFileChange} />
+              <input type="file" accept="image/*" capture="environment" ref={imageInputRef} className="hidden" onChange={handleFileChange} />
+              <input type="file" accept="video/*" capture="environment" ref={videoInputRef} className="hidden" onChange={handleFileChange} />
               <input type="file" ref={fileInputRef} className="hidden" multiple onChange={handleFileChange} />
 
               <div className="flex gap-3">
                 <button type="button" onClick={() => imageInputRef.current?.click()} className="flex-1 flex flex-col items-center justify-center gap-2 py-4 bg-blue-50 text-blue-600 rounded-xl border border-blue-100 active:bg-blue-100 transition-colors">
                   <Camera className="w-6 h-6" />
-                  <span className="text-sm font-medium">Thêm Ảnh</span>
+                  <span className="text-sm font-medium">Chụp Ảnh</span>
                 </button>
                 <button type="button" onClick={() => videoInputRef.current?.click()} className="flex-1 flex flex-col items-center justify-center gap-2 py-4 bg-blue-50 text-blue-600 rounded-xl border border-blue-100 active:bg-blue-100 transition-colors">
                   <Video className="w-6 h-6" />
-                  <span className="text-sm font-medium">Thêm Video</span>
+                  <span className="text-sm font-medium">Quay Video</span>
                 </button>
                 <button type="button" onClick={() => fileInputRef.current?.click()} className="flex-1 flex flex-col items-center justify-center gap-2 py-4 bg-blue-50 text-blue-600 rounded-xl border border-blue-100 active:bg-blue-100 transition-colors">
                   <Paperclip className="w-6 h-6" />
