@@ -6,6 +6,7 @@ import logoImg from '../static/logo_tachnen.png';
 function HomePage() {
   const [isLoading, setIsLoading] = useState(false);
   const [showToast, setShowToast] = useState(false);
+  const [showMediaToast, setShowMediaToast] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [formData, setFormData] = useState({
     title: '',
@@ -42,9 +43,11 @@ function HomePage() {
   };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files) {
+    if (e.target.files && e.target.files.length > 0) {
       const filesArray = Array.from(e.target.files);
       setSelectedFiles(prev => [...prev, ...filesArray]);
+      setShowMediaToast(true);
+      setTimeout(() => setShowMediaToast(false), 3000);
     }
     // Reset input value to allow selecting the same file again
     e.target.value = '';
@@ -106,6 +109,18 @@ function HomePage() {
               <CheckCircle2 className="w-8 h-8 flex-shrink-0" />
               <p className="text-sm font-medium leading-snug">
                 Gửi phản ánh thành công! Dữ liệu đã được tiếp nhận và xử lý.
+              </p>
+            </div>
+          </div>
+        )}
+
+        {/* Media Toast Notification */}
+        {showMediaToast && (
+          <div className="absolute top-24 left-4 right-4 z-50 animate-fade-in-down">
+            <div className="bg-blue-500 text-white px-4 py-3 rounded-lg shadow-lg flex items-center gap-3">
+              <CheckCircle2 className="w-8 h-8 flex-shrink-0" />
+              <p className="text-sm font-medium leading-snug">
+                Thông tin đã được lưu về thiết bị
               </p>
             </div>
           </div>
