@@ -39,7 +39,10 @@ const storage = multer.diskStorage({
   }
 });
 
-const upload = multer({ storage: storage });
+const upload = multer({ 
+  storage: storage,
+  limits: { fileSize: 10 * 1024 * 1024 } // Giới hạn 10MB
+});
 
 // API Endpoint nhận feedback
 app.post('/api/feedbacks', upload.array('files'), async (req, res) => {
@@ -88,6 +91,24 @@ app.post('/api/feedbacks', upload.array('files'), async (req, res) => {
       error: error.message
     });
   }
+});
+
+// Middleware xử lý lỗi tập trung (đặc biệt cho Multer chặn file quá nặng)
+app.use((err, req, res, next) => {
+  if (err instanceof multer.MulterError) {
+    if (err.code === 'LIMIT_FILE_SIZE') {
+      return res.status(400).json({ 
+        success: false, 
+        message: 'Kích thước file vượt quá giới hạn 10MB.' 
+      });
+    }
+    return res.status(400).json({ 
+      success: false, 
+      message: 'Lỗi tải file: ' + err.message 
+    });
+  }
+  console.error('Unhandled error:', err);
+  res.status(500).json({ success: false, message: 'Lỗi server nội bộ' });
 });
 
 app.listen(PORT, () => {

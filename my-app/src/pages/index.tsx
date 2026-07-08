@@ -45,9 +45,27 @@ function HomePage() {
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files.length > 0) {
       const filesArray = Array.from(e.target.files);
-      setSelectedFiles(prev => [...prev, ...filesArray]);
-      setShowMediaToast(true);
-      setTimeout(() => setShowMediaToast(false), 3000);
+      const validFiles: File[] = [];
+      const oversizedFiles: string[] = [];
+
+      filesArray.forEach(file => {
+        // Giới hạn 10MB
+        if (file.size > 10 * 1024 * 1024) {
+          oversizedFiles.push(file.name);
+        } else {
+          validFiles.push(file);
+        }
+      });
+
+      if (oversizedFiles.length > 0) {
+        alert(`Cảnh báo: Các file sau vượt quá giới hạn 10MB và không được thêm vào:\n\n${oversizedFiles.join('\n')}`);
+      }
+
+      if (validFiles.length > 0) {
+        setSelectedFiles(prev => [...prev, ...validFiles]);
+        setShowMediaToast(true);
+        setTimeout(() => setShowMediaToast(false), 3000);
+      }
     }
     // Reset input value to allow selecting the same file again
     e.target.value = '';
@@ -74,7 +92,7 @@ function HomePage() {
         data.append('files', file);
       });
 
-      const response = await fetch('http://localhost:3000/api/feedbacks', {
+      const response = await fetch('http://zalo-test.1022.vn/api/feedbacks', {
         method: 'POST',
         body: data,
       });
