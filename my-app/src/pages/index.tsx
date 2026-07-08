@@ -92,7 +92,7 @@ function HomePage() {
         data.append('files', file);
       });
 
-      const response = await fetch('http://zalo-test.1022.vn/api/feedbacks', {
+      const response = await fetch('https://zalo-test.1022.vn/api/feedbacks', {
         method: 'POST',
         body: data,
       });
