@@ -11,6 +11,9 @@ export default () => {
     build: {
       assetsInlineLimit: 0,
     },
+    server: {
+      allowedHosts: ["zalo-test.1022.vn"],
+    },
     resolve: {
       alias: {
         "@": "/src",
