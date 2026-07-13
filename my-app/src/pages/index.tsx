@@ -234,7 +234,7 @@ function HomePage() {
               
               {/* Hidden file inputs */}
               <input type="file" accept="image/*" capture="environment" ref={imageInputRef} className="hidden" onChange={handleFileChange} />
-              <input type="file" accept="video/*" capture="environment" ref={videoInputRef} className="hidden" onChange={handleFileChange} />
+              <input type="file" accept="video/*" ref={videoInputRef} className="hidden" onChange={handleFileChange} />
               <input type="file" ref={fileInputRef} className="hidden" multiple onChange={handleFileChange} />
 
               <div className="flex gap-3">
