@@ -4,6 +4,8 @@ const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
 const axios = require('axios');
+const rateLimit = require('express-rate-limit');
+const cron = require('node-cron');
 require('dotenv').config();
 
 const { pool, initDB } = require('./db');
@@ -43,9 +45,42 @@ const upload = multer({
   storage: storage,
   limits: { fileSize: 10 * 1024 * 1024 } // Giới hạn 10MB
 });
+// Cấu hình Rate Limiting (Chống Spam): Cho phép tối đa 10 requests / 15 phút trên mỗi IP
+const apiLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 phút
+  max: 10,
+  message: { success: false, message: 'Bạn đã gửi quá nhiều phản ánh. Vui lòng thử lại sau 15 phút.' },
+  standardHeaders: true,
+  legacyHeaders: false,
+});
+
+// Cấu hình Cronjob: Dọn rác file cũ hơn 1 năm (chạy lúc 00:00 mỗi ngày)
+cron.schedule('0 0 * * *', () => {
+  console.log('Running cron job to clean up old files...');
+  const ONE_YEAR_MS = 365 * 24 * 60 * 60 * 1000;
+  const now = Date.now();
+
+  fs.readdir(uploadDir, (err, files) => {
+    if (err) return console.error('Error reading upload directory:', err);
+    
+    files.forEach(file => {
+      const filePath = path.join(uploadDir, file);
+      fs.stat(filePath, (err, stats) => {
+        if (err) return console.error('Error stating file:', err);
+        
+        if (now - stats.mtimeMs > ONE_YEAR_MS) {
+          fs.unlink(filePath, err => {
+            if (err) console.error('Error deleting file:', filePath, err);
+            else console.log('Successfully deleted old file:', filePath);
+          });
+        }
+      });
+    });
+  });
+});
 
 // API Endpoint nhận feedback
-app.post('/api/feedbacks', upload.array('files'), async (req, res) => {
+app.post('/api/feedbacks', apiLimiter, upload.array('files'), async (req, res) => {
   try {
     const { title, category, content } = req.body;
     
