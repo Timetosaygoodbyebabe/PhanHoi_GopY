@@ -1,3 +1,5 @@
+import { next } from '@vercel/edge';
+
 export const config = {
   matcher: '/(.*)',
 };
@@ -14,14 +16,15 @@ export default function middleware(request) {
     });
   }
 
-  const url = new URL(request.url);
-  const targetUrl = 'https://gopy.danang.gov.vn' + url.pathname + url.search;
+  // Clone headers and modify them
+  const headers = new Headers(request.headers);
+  headers.set('origin', 'https://gopy.danang.gov.vn');
+  headers.set('referer', 'https://gopy.danang.gov.vn/');
 
-  return new Response(null, {
-    headers: {
-      'x-middleware-rewrite': targetUrl,
-      'x-middleware-request-origin': 'https://gopy.danang.gov.vn',
-      'x-middleware-request-referer': 'https://gopy.danang.gov.vn/'
+  // Use next() from @vercel/edge to pass the modified headers to vercel.json rewrites
+  return next({
+    request: {
+      headers
     }
   });
 }
