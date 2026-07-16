@@ -138,7 +138,16 @@ function HomePage() {
         const response = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}`);
         const data = await response.json();
         if (data && data.display_name) {
-          setFormData(prev => ({ ...prev, location: data.display_name }));
+          let addressParts = data.display_name.split(',').map((p: string) => p.trim());
+          
+          addressParts = addressParts.filter((p: string) => {
+            if (/^\d{5,6}$/.test(p)) return false; // Không lấy mã bưu điện
+            if (p.toLowerCase() === 'việt nam' || p.toLowerCase() === 'vietnam') return false; // Bỏ quốc gia
+            if (p.toLowerCase().includes('(cũ)')) return false; // Không lấy tên phường cũ
+            return true;
+          });
+          
+          setFormData(prev => ({ ...prev, location: addressParts.join(', ') }));
         }
       }
     } catch (error) {
