@@ -293,7 +293,7 @@ function HomePage() {
         amThanh: "",
         hinhAnhs: hinhAnhs,
         fileDinhKem: { url: "", ten: "" },
-        linhVucId: 1, // Default category
+        linhVucId: 22, // Mặc định vào "Lĩnh vực khác" để cán bộ tự phân loại sau
         nguonGopY: "ZALO"
       };
 
