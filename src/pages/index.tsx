@@ -57,6 +57,54 @@ function HomePage() {
     reader.onerror = error => reject(error);
   });
 
+  const compressImage = (file: File): Promise<File> => {
+    return new Promise((resolve) => {
+      if (!file.type.startsWith('image/')) {
+        return resolve(file);
+      }
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = (event) => {
+        const img = new Image();
+        img.src = event.target?.result as string;
+        img.onload = () => {
+          const canvas = document.createElement('canvas');
+          let width = img.width;
+          let height = img.height;
+          const MAX_SIZE = 1280;
+          
+          if (width > height) {
+            if (width > MAX_SIZE) {
+              height *= MAX_SIZE / width;
+              width = MAX_SIZE;
+            }
+          } else {
+            if (height > MAX_SIZE) {
+              width *= MAX_SIZE / height;
+              height = MAX_SIZE;
+            }
+          }
+          
+          canvas.width = width;
+          canvas.height = height;
+          const ctx = canvas.getContext('2d');
+          ctx?.drawImage(img, 0, 0, width, height);
+          
+          canvas.toBlob((blob) => {
+            if (blob) {
+              const compressedFile = new File([blob], file.name, { type: 'image/jpeg', lastModified: Date.now() });
+              resolve(compressedFile);
+            } else {
+              resolve(file);
+            }
+          }, 'image/jpeg', 0.8);
+        };
+        img.onerror = () => resolve(file);
+      };
+      reader.onerror = () => resolve(file);
+    });
+  };
+
   const handleImageChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files.length > 0) {
       const file = e.target.files[0];
@@ -74,18 +122,24 @@ function HomePage() {
       const apiPass = import.meta.env.VITE_API_PASS || '6LklPeKBZL5YTTzNGefenw0RhGfIWiiX';
       const authHeader = 'Basic ' + btoa(`${apiUser}:${apiPass}`);
 
-      // Check file size (15MB limit) to prevent Base64 memory crash
-      if (file.size > 15 * 1024 * 1024) {
-        alert('File quá lớn! Vui lòng chọn ảnh/video dưới 15MB để tránh lỗi bộ nhớ.');
-        setSelectedImage(null);
-        if (imageInputRef.current) imageInputRef.current.value = '';
-        return;
+      let fileToUpload = file;
+      if (file.type.startsWith('image/')) {
+        // Nén ảnh nếu là ảnh
+        fileToUpload = await compressImage(file);
+      } else {
+        // Nếu là video, cảnh báo nếu dung lượng quá lớn
+        if (file.size > 15 * 1024 * 1024) {
+          alert('Video quá lớn! Vui lòng chọn video dưới 15MB. Việc nén video hiện chưa được hỗ trợ trên thiết bị này.');
+          setSelectedImage(null);
+          if (imageInputRef.current) imageInputRef.current.value = '';
+          return;
+        }
       }
 
       try {
-        const base64Content = await toBase64(file);
+        const base64Content = await toBase64(fileToUpload);
         const uploadPayload = {
-          ten: file.name,
+          ten: fileToUpload.name,
           base64Content: base64Content
         };
 
