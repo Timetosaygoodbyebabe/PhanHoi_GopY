@@ -194,14 +194,14 @@ function HomePage() {
         console.warn('Zalo getLocation failed, falling back to browser API:', zmpError);
       }
 
-      // 2. Nếu Zalo SDK thất bại, dùng API trình duyệt (với timeout 10s)
+      // 2. Nếu Zalo SDK thất bại, dùng API trình duyệt
       if (!lat || !lon) {
         if (navigator.geolocation) {
           const pos = await new Promise<GeolocationPosition>((resolve, reject) => {
             navigator.geolocation.getCurrentPosition(resolve, reject, {
-              enableHighAccuracy: true,
-              timeout: 10000, // Tối đa 10s
-              maximumAge: 5000 // Chấp nhận vị trí cũ 5s
+              enableHighAccuracy: false, // Tắt độ chính xác cao để lấy vị trí nhanh hơn qua Wifi/Cellular, tránh lỗi TIMEOUT
+              timeout: 15000, // Nới lỏng thành 15s
+              maximumAge: 10000 
             });
           });
           lat = pos.coords.latitude;
