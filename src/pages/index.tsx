@@ -23,7 +23,7 @@ export type UploadedFile = {
 
 function HomePage() {
   const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-  const API_BASE = isLocalhost ? '' : import.meta.env.VITE_API_DOMAIN;
+  const API_BASE = isLocalhost ? '' : (import.meta.env.VITE_API_DOMAIN || 'https://gopy.danang.gov.vn');
   const [isLoading, setIsLoading] = useState(false);
   const [showToast, setShowToast] = useState(false);
   const [isGettingLocation, setIsGettingLocation] = useState(false);
@@ -70,7 +70,9 @@ function HomePage() {
 
       setSelectedImage(newFile);
 
-      const authHeader = 'Basic ' + btoa(`${import.meta.env.VITE_API_USER}:${import.meta.env.VITE_API_PASS}`);
+      const apiUser = import.meta.env.VITE_API_USER || 'appdnsmartcity';
+      const apiPass = import.meta.env.VITE_API_PASS || '6LklPeKBZL5YTTzNGefenw0RhGfIWiiX';
+      const authHeader = 'Basic ' + btoa(`${apiUser}:${apiPass}`);
 
       try {
         const base64Content = await toBase64(file);
@@ -178,7 +180,9 @@ function HomePage() {
         return;
       }
 
-      const authHeader = 'Basic ' + btoa(`${import.meta.env.VITE_API_USER}:${import.meta.env.VITE_API_PASS}`);
+      const apiUser = import.meta.env.VITE_API_USER || 'appdnsmartcity';
+      const apiPass = import.meta.env.VITE_API_PASS || '6LklPeKBZL5YTTzNGefenw0RhGfIWiiX';
+      const authHeader = 'Basic ' + btoa(`${apiUser}:${apiPass}`);
 
       const hinhAnhs: { url: string, ten: string }[] = [];
       if (selectedImage && selectedImage.url && !selectedImage.isError) {
