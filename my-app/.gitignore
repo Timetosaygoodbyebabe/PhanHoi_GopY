@@ -1,3 +1,4 @@
+
 # Logs
 logs
 *.log
@@ -28,25 +29,13 @@ node_modules/
 
 # dotenv environment variables file
 .env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+
+# Misc
+.DS_Store
+Thumbs.db
 
 # Production build
 www/
-dist/
-build/
 
-# IDEs and editors
-.idea/
-.vscode/
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+.vite/
 
-# System Files
-.DS_Store
-Thumbs.db
