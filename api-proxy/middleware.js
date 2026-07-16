@@ -1,4 +1,4 @@
-import { next } from '@vercel/edge';
+import { rewrite } from '@vercel/edge';
 
 export const config = {
   matcher: '/(.*)',
@@ -21,8 +21,12 @@ export default function middleware(request) {
   headers.set('origin', 'https://gopy.danang.gov.vn');
   headers.set('referer', 'https://gopy.danang.gov.vn/');
 
-  // Use next() from @vercel/edge to pass the modified headers to vercel.json rewrites
-  return next({
+  // Determine target URL
+  const url = new URL(request.url);
+  const targetUrl = 'https://gopy.danang.gov.vn' + url.pathname + url.search;
+
+  // Use rewrite() from @vercel/edge to proxy to external URL natively
+  return rewrite(targetUrl, {
     request: {
       headers
     }
