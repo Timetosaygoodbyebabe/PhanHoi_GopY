@@ -75,24 +75,24 @@ function HomePage() {
       const authHeader = 'Basic ' + btoa(`${apiUser}:${apiPass}`);
 
       try {
-        const base64Content = await toBase64(file);
-        const uploadPayload = {
-          ten: file.name,
-          base64Content: base64Content
-        };
+        const formData = new FormData();
+        formData.append('file', file);
+        // Có thể thêm trường ten nếu API yêu cầu, ví dụ: formData.append('ten', file.name);
 
         const uploadRes = await fetch(`${API_BASE}/base-api/public/file`, {
           method: 'POST',
           headers: {
-            'Content-Type': 'application/json',
             'Authorization': authHeader
+            // Không set Content-Type, trình duyệt sẽ tự động set boundary cho multipart/form-data
           },
-          body: JSON.stringify(uploadPayload)
+          body: formData
         });
 
         if (uploadRes.ok) {
           const uploadData = await uploadRes.json();
-          setSelectedImage(prev => prev ? { ...prev, url: uploadData.base64Content, isUploading: false } : null);
+          // Xử lý tùy theo cấu trúc trả về của API, thông thường là uploadData.url hoặc uploadData.data.url
+          const returnedUrl = uploadData.url || uploadData.base64Content || uploadData.filePath || '';
+          setSelectedImage(prev => prev ? { ...prev, url: returnedUrl, isUploading: false } : null);
         } else {
           console.error('Lỗi upload file:', await uploadRes.text());
           setSelectedImage(prev => prev ? { ...prev, isUploading: false, isError: true } : null);
@@ -351,16 +351,20 @@ function HomePage() {
             <div className="flex flex-col gap-2 mt-2">
               <span className="text-base font-semibold text-gray-700 px-1">File đính kèm, hình ảnh, video (nếu có)</span>
 
-              <input type="file" accept="image/*" ref={imageInputRef} className="hidden" onChange={handleImageChange} />
+              <input type="file" accept="image/*,video/*" ref={imageInputRef} className="hidden" onChange={handleImageChange} />
 
               {!selectedImage ? (
                 <button type="button" onClick={() => imageInputRef.current?.click()} className="w-full flex flex-col items-center justify-center gap-2 py-6 bg-blue-50 text-blue-600 rounded-xl border-2 border-dashed border-blue-200 active:bg-blue-100 transition-colors">
                   <Camera className="w-8 h-8" />
-                  <span className="text-sm font-medium">Chụp hoặc Chọn ảnh</span>
+                  <span className="text-sm font-medium">Chụp hoặc Chọn file</span>
                 </button>
               ) : (
                 <div className="relative rounded-xl overflow-hidden border border-gray-200">
-                  <img src={selectedImage.preview} alt="Selected" className="w-full h-48 object-cover" />
+                  {selectedImage.file.type.startsWith('video/') ? (
+                    <video src={selectedImage.preview} className="w-full h-48 object-cover" controls />
+                  ) : (
+                    <img src={selectedImage.preview} alt="Selected" className="w-full h-48 object-cover" />
+                  )}
                   <div className="absolute top-2 left-2 flex items-center gap-2">
                     {selectedImage.isUploading && (
                       <span className="bg-white/90 px-2 py-1 rounded-lg flex items-center gap-1 text-sm text-blue-600">
