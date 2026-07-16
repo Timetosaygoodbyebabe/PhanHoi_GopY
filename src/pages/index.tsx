@@ -74,24 +74,34 @@ function HomePage() {
       const apiPass = import.meta.env.VITE_API_PASS || '6LklPeKBZL5YTTzNGefenw0RhGfIWiiX';
       const authHeader = 'Basic ' + btoa(`${apiUser}:${apiPass}`);
 
+      // Check file size (15MB limit) to prevent Base64 memory crash
+      if (file.size > 15 * 1024 * 1024) {
+        alert('File quá lớn! Vui lòng chọn ảnh/video dưới 15MB để tránh lỗi bộ nhớ.');
+        setSelectedImage(null);
+        if (imageInputRef.current) imageInputRef.current.value = '';
+        return;
+      }
+
       try {
-        const formData = new FormData();
-        formData.append('file', file);
-        // Có thể thêm trường ten nếu API yêu cầu, ví dụ: formData.append('ten', file.name);
+        const base64Content = await toBase64(file);
+        const uploadPayload = {
+          ten: file.name,
+          base64Content: base64Content
+        };
 
         const uploadRes = await fetch(`${API_BASE}/base-api/public/file`, {
           method: 'POST',
           headers: {
+            'Content-Type': 'application/json',
             'Authorization': authHeader
-            // Không set Content-Type, trình duyệt sẽ tự động set boundary cho multipart/form-data
           },
-          body: formData
+          body: JSON.stringify(uploadPayload)
         });
 
         if (uploadRes.ok) {
           const uploadData = await uploadRes.json();
-          // Xử lý tùy theo cấu trúc trả về của API, thông thường là uploadData.url hoặc uploadData.data.url
-          const returnedUrl = uploadData.url || uploadData.base64Content || uploadData.filePath || '';
+          // API Đà Nẵng trả về { url: '...' }
+          const returnedUrl = uploadData.url || uploadData.base64Content || '';
           setSelectedImage(prev => prev ? { ...prev, url: returnedUrl, isUploading: false } : null);
         } else {
           console.error('Lỗi upload file:', await uploadRes.text());
