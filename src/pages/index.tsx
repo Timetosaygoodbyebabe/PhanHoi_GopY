@@ -22,7 +22,8 @@ export type UploadedFile = {
 };
 
 function HomePage() {
-  const API_BASE = import.meta.env.DEV ? '' : import.meta.env.VITE_API_DOMAIN;
+  const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+  const API_BASE = isLocalhost ? '' : import.meta.env.VITE_API_DOMAIN;
   const [isLoading, setIsLoading] = useState(false);
   const [showToast, setShowToast] = useState(false);
   const [isGettingLocation, setIsGettingLocation] = useState(false);
