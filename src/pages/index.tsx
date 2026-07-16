@@ -182,58 +182,83 @@ function HomePage() {
     try {
       let lat = 0;
       let lon = 0;
+      
+      // 1. Thử lấy vị trí qua Zalo SDK trước
       try {
         const result = await getLocation({});
-        lat = Number(result.latitude);
-        lon = Number(result.longitude);
+        if (result && result.latitude) {
+          lat = Number(result.latitude);
+          lon = Number(result.longitude);
+        }
       } catch (zmpError) {
+        console.warn('Zalo getLocation failed, falling back to browser API:', zmpError);
+      }
+
+      // 2. Nếu Zalo SDK thất bại, dùng API trình duyệt (với timeout 10s)
+      if (!lat || !lon) {
         if (navigator.geolocation) {
           const pos = await new Promise<GeolocationPosition>((resolve, reject) => {
-            navigator.geolocation.getCurrentPosition(resolve, reject);
+            navigator.geolocation.getCurrentPosition(resolve, reject, {
+              enableHighAccuracy: true,
+              timeout: 10000, // Tối đa 10s
+              maximumAge: 5000 // Chấp nhận vị trí cũ 5s
+            });
           });
           lat = pos.coords.latitude;
           lon = pos.coords.longitude;
         } else {
-          throw new Error('Not supported');
+          throw new Error('Thiết bị không hỗ trợ lấy vị trí');
         }
       }
 
+      // 3. Nếu lấy được tọa độ, tiến hành dịch ngược ra địa chỉ
       if (lat && lon) {
         setLatitude(lat);
         setLongitude(lon);
-        const response = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}&addressdetails=1`);
-        const data = await response.json();
-        if (data && data.address) {
-          const addr = data.address;
-          const parts: string[] = [];
+        
+        try {
+          const response = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}&addressdetails=1`, {
+            headers: { 'Accept-Language': 'vi' }
+          });
           
-          // 1. Vị trí chính xác (Số nhà + Tên đường, hoặc tên toà nhà)
-          const street = addr.road || addr.pedestrian || addr.street || '';
-          const exactLocation = addr.house_number ? `${addr.house_number} ${street}`.trim() : street;
-          if (exactLocation) parts.push(exactLocation);
-          else if (addr.amenity || addr.building || addr.shop) parts.push(addr.amenity || addr.building || addr.shop);
+          if (!response.ok) throw new Error('API Rate Limit');
           
-          // 2. Phường / Xã
-          const ward = addr.suburb || addr.quarter || addr.village || addr.hamlet;
-          if (ward && !ward.toLowerCase().includes('(cũ)')) parts.push(ward);
-          
-          // 3. Quận / Huyện
-          const district = addr.city_district || addr.county || addr.district;
-          if (district) parts.push(district);
-          
-          // 4. Thành phố / Tỉnh
-          const city = addr.city || addr.state || addr.province || addr.town;
-          if (city) parts.push(city);
-          
-          const locationString = parts.length > 0 ? parts.join(', ') : data.display_name;
-          setFormData(prev => ({ ...prev, location: locationString }));
-        } else if (data && data.display_name) {
-          setFormData(prev => ({ ...prev, location: data.display_name }));
+          const data = await response.json();
+          if (data && data.address) {
+            const addr = data.address;
+            const parts: string[] = [];
+            
+            const street = addr.road || addr.pedestrian || addr.street || '';
+            const exactLocation = addr.house_number ? `${addr.house_number} ${street}`.trim() : street;
+            if (exactLocation) parts.push(exactLocation);
+            else if (addr.amenity || addr.building || addr.shop) parts.push(addr.amenity || addr.building || addr.shop);
+            
+            const ward = addr.suburb || addr.quarter || addr.village || addr.hamlet;
+            if (ward && !ward.toLowerCase().includes('(cũ)')) parts.push(ward);
+            
+            const district = addr.city_district || addr.county || addr.district;
+            if (district) parts.push(district);
+            
+            const city = addr.city || addr.state || addr.province || addr.town;
+            if (city) parts.push(city);
+            
+            const locationString = parts.length > 0 ? parts.join(', ') : data.display_name;
+            setFormData(prev => ({ ...prev, location: locationString }));
+          } else if (data && data.display_name) {
+            setFormData(prev => ({ ...prev, location: data.display_name }));
+          } else {
+            // Có phản hồi nhưng không có địa chỉ
+            setFormData(prev => ({ ...prev, location: `${lat}, ${lon}` }));
+          }
+        } catch (geoError) {
+          // Lỗi mạng hoặc bị giới hạn (Rate limit), điền luôn tọa độ để user không bị kẹt
+          console.error('Lỗi lấy tên đường:', geoError);
+          setFormData(prev => ({ ...prev, location: `${lat}, ${lon}` }));
         }
       }
     } catch (error) {
-      console.error('Lỗi lấy vị trí:', error);
-      alert('Không thể lấy vị trí hiện tại. Vui lòng cấp quyền vị trí cho ứng dụng.');
+      console.error('Lỗi lấy vị trí tổng quát:', error);
+      alert('Không thể lấy vị trí hiện tại. Vui lòng cấp quyền vị trí cho Zalo trên thiết bị.');
     } finally {
       setIsGettingLocation(false);
     }
@@ -293,7 +318,7 @@ function HomePage() {
         amThanh: "",
         hinhAnhs: hinhAnhs,
         fileDinhKem: { url: "", ten: "" },
-        linhVucId: 22, // Mặc định vào "Lĩnh vực khác" để cán bộ tự phân loại sau
+        linhVucId: 22, // Mặc định vào "Lĩnh vực khác" để mấy chị tự phân loại
         nguonGopY: "ZALO"
       };
 
@@ -308,7 +333,7 @@ function HomePage() {
 
       if (response.ok) {
         setShowToast(true);
-        setFormData(prev => ({ ...prev, content: '', location: '' })); // Keep name, email, phone
+        setFormData(prev => ({ ...prev, content: '', location: '' })); // giữ name, phone, mail
         setLatitude(0);
         setLongitude(0);
         handleRemoveImage();
