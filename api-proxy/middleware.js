@@ -3,7 +3,6 @@ export const config = {
 };
 
 export default function middleware(request) {
-  // Bắt các yêu cầu OPTIONS (Preflight) và trả về 200 OK ngay lập tức
   if (request.method === 'OPTIONS') {
     return new Response(null, {
       status: 200,
@@ -15,11 +14,12 @@ export default function middleware(request) {
     });
   }
 
-  // Các request POST/GET khác: Ghi đè Origin để qua mặt tường lửa của máy chủ Đà Nẵng
-  // Tường lửa Đà Nẵng sẽ báo lỗi "Invalid CORS request" nếu thấy Origin là localhost hoặc Zalo
+  const url = new URL(request.url);
+  const targetUrl = 'https://gopy.danang.gov.vn' + url.pathname + url.search;
+
   return new Response(null, {
     headers: {
-      'x-middleware-next': '1', // Lệnh bắt buộc để Vercel tiếp tục chuyển tiếp request
+      'x-middleware-rewrite': targetUrl,
       'x-middleware-request-origin': 'https://gopy.danang.gov.vn',
       'x-middleware-request-referer': 'https://gopy.danang.gov.vn/'
     }
