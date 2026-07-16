@@ -23,7 +23,7 @@ export type UploadedFile = {
 
 function HomePage() {
   const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-  const API_BASE = isLocalhost ? '' : (import.meta.env.VITE_API_DOMAIN || 'https://gopy.danang.gov.vn');
+  const API_BASE = isLocalhost ? '' : (import.meta.env.VITE_API_DOMAIN || 'https://gopy-danang-proxy.vercel.app');
   const [isLoading, setIsLoading] = useState(false);
   const [showToast, setShowToast] = useState(false);
   const [isGettingLocation, setIsGettingLocation] = useState(false);
