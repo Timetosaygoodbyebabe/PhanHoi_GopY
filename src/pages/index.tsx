@@ -137,19 +137,34 @@ function HomePage() {
       if (lat && lon) {
         setLatitude(lat);
         setLongitude(lon);
-        const response = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}`);
+        const response = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}&addressdetails=1`);
         const data = await response.json();
-        if (data && data.display_name) {
-          let addressParts = data.display_name.split(',').map((p: string) => p.trim());
+        if (data && data.address) {
+          const addr = data.address;
+          const parts: string[] = [];
           
-          addressParts = addressParts.filter((p: string) => {
-            if (/^\d{5,6}$/.test(p)) return false; // Không lấy mã bưu điện
-            if (p.toLowerCase() === 'việt nam' || p.toLowerCase() === 'vietnam') return false; // Bỏ quốc gia
-            if (p.toLowerCase().includes('(cũ)')) return false; // Không lấy tên phường cũ
-            return true;
-          });
+          // 1. Vị trí chính xác (Số nhà + Tên đường, hoặc tên toà nhà)
+          const street = addr.road || addr.pedestrian || addr.street || '';
+          const exactLocation = addr.house_number ? `${addr.house_number} ${street}`.trim() : street;
+          if (exactLocation) parts.push(exactLocation);
+          else if (addr.amenity || addr.building || addr.shop) parts.push(addr.amenity || addr.building || addr.shop);
           
-          setFormData(prev => ({ ...prev, location: addressParts.join(', ') }));
+          // 2. Phường / Xã
+          const ward = addr.suburb || addr.quarter || addr.village || addr.hamlet;
+          if (ward && !ward.toLowerCase().includes('(cũ)')) parts.push(ward);
+          
+          // 3. Quận / Huyện
+          const district = addr.city_district || addr.county || addr.district;
+          if (district) parts.push(district);
+          
+          // 4. Thành phố / Tỉnh
+          const city = addr.city || addr.state || addr.province || addr.town;
+          if (city) parts.push(city);
+          
+          const locationString = parts.length > 0 ? parts.join(', ') : data.display_name;
+          setFormData(prev => ({ ...prev, location: locationString }));
+        } else if (data && data.display_name) {
+          setFormData(prev => ({ ...prev, location: data.display_name }));
         }
       }
     } catch (error) {
