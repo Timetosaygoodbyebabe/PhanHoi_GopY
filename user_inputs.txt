@@ -1,0 +1,425 @@
+<USER_REQUEST>
+import React from 'react';
+import { Camera, Send, Loader2, CheckCircle2, Navigation, AlertCircle } from 'lucide-react';
+import { Page } from 'zmp-ui';
+import logoImg from '../static/logo_tachnen.png';
+
+export type FormData = {
+  name: string;
+  email: string;
+  phone: string;
+  content: string;
+  location: string;
+};
+Sửa lại phần UI vào index
+
+
+export type UploadedFile = {
+  id: string;
+  file: File;
+  url?: string;
+  preview?: string;
+  isUploading: boolean;
+  isError: boolean;
+};
+
+export type FeedbackFormUIProps = {
+  showToast: boolean;
+  isLoading: boolean;
+  formData: FormData;
+  selectedImage: UploadedFile | null;
+  imageInputRef: React.RefObject<HTMLInputElement>;
+  onInputChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
+  onImageChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onRemoveImage: () => void;
+  onGetLocation: () => void;
+  onSubmit: (e: React.FormEvent) => void;
+};
+
+function FeedbackFormUI({
+  showToast,
+  isLoading,
+  formData,
+  selectedImage,
+  imageInputRef,
+  onInputChange,
+  onImageChange,
+  onRemoveImage,
+  onGetLocation,
+  onSubmit,
+}: FeedbackFormUIProps) {
+  return (
+    <Page className="min-h-screen bg-gray-100 flex justify-center font-sans relative">
+      <div className="w-full max-w-md bg-white min-h-screen shadow-xl relative overflow-hidden flex flex-col">
+
+        {showToast && (
+          <div className="absolute top-24 left-4 right-4 z-50 animate-fade-in-down">
+            <div className="bg-green-500 text-white px-4 py-3 rounded-lg shadow-lg flex items-center gap-3">
+              <CheckCircle2 className="w-8 h-8 flex-shrink-0" />
+              <p className="text-sm font-medium leading-snug">
+                Gửi phản ánh thành công! Dữ liệu đã được tiếp nhận.
+              </p>
+            </div>
+          </div>
+        )}
+
+        <header className="bg-blue-700 px-4 pt-12 pb-4 flex items-center gap-3 sticky top-0 z-40 shadow-sm relative">
+          <div className="w-14 h-14 bg-white rounded-full p-1 shadow-inner flex items-center justify-center flex-shrink-0">
+            <img src={logoImg} alt="Logo Đà Nẵng" className="w-full h-full object-contain" />
+          </div>
+          <div className="flex flex-col">
+            <h1 className="text-white font-bold text-[17px] uppercase tracking-wide leading-tight">
+              Cổng góp ý Đà Nẵng
+            </h1>
+            <p className="text-white/90 text-xs mt-0.5 font-medium">
+              Góp ý văn minh, chính xác - Xử lý trách nhiệm, hiệu quả
+            </p>
+          </div>
+        </header>
+
+        <main className="flex-1 overflow-y-auto no-scrollbar">
+          <form onSubmit={onSubmit} className="p-4 flex flex-col gap-5">
+            <div className="flex flex-col gap-5">
+
+              <div className="flex flex-col gap-2.5">
+                <label className="text-lg font-semibold text-gray-700">Họ và tên <span className="text-red-500">*</span></label>
+                <input
+                  type="text" name="name" required value={formData.name} onChange={onInputChange}
+                  placeholder="Nhập họ tên của bạn"
+                  className="w-full px-4 py-4 border border-gray-300 rounded-xl text-lg focus:outline-none focus:border-blue-500"
+                />
+              </div>
+
+              <div className="flex flex-col gap-2.5">
+                <label className="text-lg font-semibold text-gray-700">Email</label>
+                <input
+                  type="email" name="email" value={formData.email} onChange={onInputChange}
+                  placeholder="Nhập địa chỉ email (không bắt buộc)"
+                  className="w-full px-4 py-4 border border-gray-300 rounded-xl text-lg focus:outline-none focus:border-blue-500"
+                />
+              </div>
+
+              <div className="flex flex-col gap-2.5">
+                <label className="text-lg font-semibold text-gray-700">Số điện thoại <span className="text-red-500">*</span></label>
+                <input
+                  type="tel" name="phone" required value={formData.phone} onChange={onInputChange}
+                  placeholder="Nhập số điện thoại"
+                  className="w-full px-4 py-4 border border-gray-300 rounded-xl text-lg focus:outline-none focus:border-blue-500"
+                />
+              </div>
+
+              <div className="flex flex-col gap-2.5">
+                <label className="text-lg font-semibold text-gray-700">Địa điểm diễn ra</label>
+                <div className="flex gap-2">
+                  <input
+                    type="text" name="location" value={formData.location} onChange={onInputChange}
+                    placeholder="Địa chỉ hoặc tọa độ..."
+                    className="flex-1 px-4 py-4 border border-gray-300 rounded-xl text-lg focus:outline-none focus:border-blue-500"
+                  />
+                  <button type="button" onClick={onGetLocation} className="px-4 bg-blue-50 text-blue-600 rounded-xl border border-blue-100 active:bg-blue-100 transition-colors flex items-center justify-center">
+                    <Navigation className="w-6 h-6" />
+                  </button>
+                </div>
+              </div>
+
+              <div className="flex flex-col gap-2.5">
+                <label className="text-lg font-semibold text-gray-700">Nội dung <span className="text-red-500">*</span></label>
+                <textarea
+                  name="content" required rows={5} value={formData.content} onChange={onInputChange}
+                  placeholder="Vui lòng nhập nội dung góp ý, phản ánh của bạn"
+                  className="w-full px-4 py-4 border border-gray-300 rounded-xl text-lg focus:outline-none focus:border-blue-500 resize-none"
+                />
+              </div>
+
+            </div>
+
+            <div className="flex flex-col gap-2 mt-2">
+              <span className="text-base font-semibold text-gray-700 px-1">File đính kèm, hình ảnh, video (nếu có)</span>
+
+              <input type="file" accept="image/*" ref={imageInputRef} className="hidden" onChange={onImageChange} />
+
+              {!selectedImage ? (
+                <button type="button" onClick={() => imageInputRef.current?.click()} className="w-full flex flex-col items-center justify-center gap-2 py-6 bg-blue-50 text-blue-600 rounded-xl border-2 border-dashed border-blue-200 active:bg-blue-100 transition-colors">
+                  <Camera className="w-8 h-8" />
+                  <span className="text-sm font-medium">Chụp hoặc Chọn ảnh</span>
+                </button>
+              ) : (
+                <div className="relative rounded-xl overflow-hidden border border-gray-200">
+                  <img src={selectedImage.preview} alt="Selected" className="w-full h-48 object-cover" />
+                  <div className="absolute top-2 left-2 flex items-center gap-2">
+                    {selectedImage.isUploading && (
+                      <span className="bg-white/90 px-2 py-1 rounded-lg flex items-center gap-1 text-sm text-blue-600">
+                        <Loader2 className="w-4 h-4 animate-spin" /> Đang tải...
+                      </span>
+                    )}
+                    {selectedImage.isError && (
+                      <span className="bg-white/90 px-2 py-1 rounded-lg flex items-center gap-1 text-sm text-red-600">
+                        <AlertCircle className="w-4 h-4" /> Lỗi tải lên
+                      </span>
+                    )}
+                  </div>
+                  <button type="button" onClick={onRemoveImage} className="absolute top-2 right-2 bg-red-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold shadow-md">
+                    X
+                  </button>
+                </div>
+              )}
+            </div>
+            <div className="h-6"></div>
+          </form>
+        </main>
+
+        <div className="p-4 bg-white border-t border-gray-100 sticky bottom-0 z-40">
+          <button
+            onClick={onSubmit} disabled={isLoading}
+            className={`w-full flex items-center justify-center gap-2 py-3.5 rounded-xl text-white font-semibold text-[15px] shadow-md transition-all active:scale-[0.98] ${isLoading ? 'bg-blue-400 cursor-not-allowed' : 'bg-blue-600 hover:bg-blue-700'}`}
+          >
+            {isLoading ? (
+              <><Loader2 className="w-5 h-5 animate-spin" /> Đang xử lý...</>
+            ) : (
+              <><Send className="w-5 h-5" /> Gửi phản ánh</>
+            )}
+          </button>
+        </div>
+
+      </div>
+
+      <style>{`
+        @keyframes fade-in-down {
+          0% { opacity: 0; transform: translateY(-20px); }
+          100% { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in-down { animation: fade-in-down 0.4s ease-out; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+      `}</style>
+    </Page>
+  );
+}
+
+export default FeedbackFormUI;
+
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-07-16T14:10:16+07:00.
+
+The user's current state is as follows:
+Active Document: c:\Users\luudu\Downloads\ioc-gopy-miniapp\src\pages\index.tsx (LANGUAGE_TSX)
+Cursor is on line: 1
+Other open documents:
+- c:\Users\luudu\Downloads\ioc-gopy-miniapp\src\pages\index.tsx (LANGUAGE_TSX)
+</ADDITIONAL_METADATA>
+<USER_SETTINGS_CHANGE>
+The user changed setting `Model Selection` from None to Gemini 3.1 Pro (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.
+</USER_SETTINGS_CHANGE>
+---
+<USER_REQUEST>
+
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-07-16T14:15:21+07:00.
+
+The user's current state is as follows:
+Active Document: c:\Users\luudu\Downloads\ioc-gopy-miniapp\src\pages\index.tsx (LANGUAGE_TSX)
+Cursor is on line: 159
+Other open documents:
+- c:\Users\luudu\Downloads\ioc-gopy-miniapp\src\pages\index.tsx (LANGUAGE_TSX)
+</ADDITIONAL_METADATA>
+---
+<USER_REQUEST>
+
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-07-16T14:18:11+07:00.
+
+The user's current state is as follows:
+Active Document: c:\Users\luudu\Downloads\ioc-gopy-miniapp\src\pages\index.tsx (LANGUAGE_TSX)
+Cursor is on line: 159
+Other open documents:
+- c:\Users\luudu\Downloads\ioc-gopy-miniapp\vite.config.mts (LANGUAGE_TYPESCRIPT)
+- c:\Users\luudu\Downloads\ioc-gopy-miniapp\src\pages\index.tsx (LANGUAGE_TSX)
+</ADDITIONAL_METADATA>
+---
+<USER_REQUEST>
+push git lên github
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-07-16T14:23:39+07:00.
+
+The user's current state is as follows:
+Active Document: c:\Users\luudu\Downloads\ioc-gopy-miniapp\src\pages\index.tsx (LANGUAGE_TSX)
+Cursor is on line: 149
+Other open documents:
+- c:\Users\luudu\Downloads\ioc-gopy-miniapp\vite.config.mts (LANGUAGE_TYPESCRIPT)
+- c:\Users\luudu\Downloads\ioc-gopy-miniapp\src\pages\index.tsx (LANGUAGE_TSX)
+</ADDITIONAL_METADATA>
+---
+<USER_REQUEST>
+https://github.com/Timetosaygoodbyebabe/PhanHoi_GopY.git
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-07-16T14:24:19+07:00.
+
+The user's current state is as follows:
+Active Document: c:\Users\luudu\Downloads\ioc-gopy-miniapp\src\pages\index.tsx (LANGUAGE_TSX)
+Cursor is on line: 149
+Other open documents:
+- c:\Users\luudu\Downloads\ioc-gopy-miniapp\src\pages\index.tsx (LANGUAGE_TSX)
+- c:\Users\luudu\Downloads\ioc-gopy-miniapp\vite.config.mts (LANGUAGE_TYPESCRIPT)
+</ADDITIONAL_METADATA>
+---
+<USER_REQUEST>
+Code hiện tại đã thông báo chạy được, bây giờ deploy lên xong có thể tắt code bên máy tính được không
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-07-16T14:26:10+07:00.
+
+The user's current state is as follows:
+Active Document: c:\Users\luudu\Downloads\ioc-gopy-miniapp\src\pages\index.tsx (LANGUAGE_TSX)
+Cursor is on line: 149
+Other open documents:
+- c:\Users\luudu\Downloads\ioc-gopy-miniapp\src\pages\index.tsx (LANGUAGE_TSX)
+- c:\Users\luudu\Downloads\ioc-gopy-miniapp\.gitignore (LANGUAGE_UNSPECIFIED)
+- c:\Users\luudu\Downloads\ioc-gopy-miniapp\vite.config.mts (LANGUAGE_TYPESCRIPT)
+</ADDITIONAL_METADATA>
+---
+<USER_REQUEST>
+Nhưng hiện tại muốn chạy phải nom run start, còn deploy rồi có lo chuyện đó nữa không
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-07-16T14:27:35+07:00.
+
+The user's current state is as follows:
+Active Document: c:\Users\luudu\Downloads\ioc-gopy-miniapp\src\pages\index.tsx (LANGUAGE_TSX)
+Cursor is on line: 149
+Other open documents:
+- c:\Users\luudu\Downloads\ioc-gopy-miniapp\src\pages\index.tsx (LANGUAGE_TSX)
+- c:\Users\luudu\Downloads\ioc-gopy-miniapp\.gitignore (LANGUAGE_UNSPECIFIED)
+- c:\Users\luudu\Downloads\ioc-gopy-miniapp\vite.config.mts (LANGUAGE_TYPESCRIPT)
+</ADDITIONAL_METADATA>
+---
+<USER_REQUEST>
+Đã deploy trên điện thoại nhưng khi gởi data thì lỗi load failed
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-07-16T14:29:38+07:00.
+
+The user's current state is as follows:
+Active Document: c:\Users\luudu\Downloads\ioc-gopy-miniapp\src\pages\index.tsx (LANGUAGE_TSX)
+Cursor is on line: 149
+Other open documents:
+- c:\Users\luudu\Downloads\ioc-gopy-miniapp\src\pages\index.tsx (LANGUAGE_TSX)
+- c:\Users\luudu\Downloads\ioc-gopy-miniapp\.gitignore (LANGUAGE_UNSPECIFIED)
+- c:\Users\luudu\Downloads\ioc-gopy-miniapp\vite.config.mts (LANGUAGE_TYPESCRIPT)
+</ADDITIONAL_METADATA>
+---
+<USER_REQUEST>
+Sửa phần lấy api địa điểm, thiết lập chỉ lấy chính xác vị trí, phường, thành phố. Không lấy tên phường cũ, không lấy mã post
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-07-16T14:31:46+07:00.
+
+The user's current state is as follows:
+Active Document: c:\Users\luudu\Downloads\ioc-gopy-miniapp\src\pages\index.tsx (LANGUAGE_TSX)
+Cursor is on line: 150
+Other open documents:
+- c:\Users\luudu\Downloads\ioc-gopy-miniapp\src\pages\index.tsx (LANGUAGE_TSX)
+- c:\Users\luudu\Downloads\ioc-gopy-miniapp\.gitignore (LANGUAGE_UNSPECIFIED)
+- c:\Users\luudu\Downloads\ioc-gopy-miniapp\vite.config.mts (LANGUAGE_TYPESCRIPT)
+</ADDITIONAL_METADATA>
+---
+<USER_REQUEST>
+Vẫn không thể kết nối tới máy chủ, cần khắc phục triệt để lỗi này
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-07-16T14:34:13+07:00.
+
+The user's current state is as follows:
+Active Document: c:\Users\luudu\Downloads\ioc-gopy-miniapp\src\pages\index.tsx (LANGUAGE_TSX)
+Cursor is on line: 159
+Other open documents:
+- c:\Users\luudu\Downloads\ioc-gopy-miniapp\src\pages\index.tsx (LANGUAGE_TSX)
+- c:\Users\luudu\Downloads\ioc-gopy-miniapp\.gitignore (LANGUAGE_UNSPECIFIED)
+- c:\Users\luudu\Downloads\ioc-gopy-miniapp\vite.config.mts (LANGUAGE_TYPESCRIPT)
+</ADDITIONAL_METADATA>
+---
+<USER_REQUEST>
+Đã thêm nhưng vẫn bị lỗi kết nối
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-07-16T14:39:15+07:00.
+
+The user's current state is as follows:
+Active Document: c:\Users\luudu\Downloads\ioc-gopy-miniapp\src\pages\index.tsx (LANGUAGE_TSX)
+Cursor is on line: 186
+Other open documents:
+- c:\Users\luudu\Downloads\ioc-gopy-miniapp\src\pages\index.tsx (LANGUAGE_TSX)
+- c:\Users\luudu\Downloads\ioc-gopy-miniapp\.env (LANGUAGE_UNSPECIFIED)
+- c:\Users\luudu\Downloads\ioc-gopy-miniapp\.gitignore (LANGUAGE_UNSPECIFIED)
+- c:\Users\luudu\Downloads\ioc-gopy-miniapp\vite.config.mts (LANGUAGE_TYPESCRIPT)
+</ADDITIONAL_METADATA>
+---
+<USER_REQUEST>
+Payload như này trả kết quả sai đúng không
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-07-16T14:53:45+07:00.
+
+The user's current state is as follows:
+Active Document: c:\Users\luudu\Downloads\ioc-gopy-miniapp\src\pages\index.tsx (LANGUAGE_TSX)
+Cursor is on line: 186
+Other open documents:
+- c:\Users\luudu\Downloads\ioc-gopy-miniapp\src\pages\index.tsx (LANGUAGE_TSX)
+- c:\Users\luudu\Downloads\ioc-gopy-miniapp\.env (LANGUAGE_UNSPECIFIED)
+- c:\Users\luudu\Downloads\ioc-gopy-miniapp\.gitignore (LANGUAGE_UNSPECIFIED)
+- c:\Users\luudu\Downloads\ioc-gopy-miniapp\vite.config.mts (LANGUAGE_TYPESCRIPT)
+</ADDITIONAL_METADATA>
+---
+<USER_REQUEST>
+Nhưng tại sao deploy vẫn bị báo lỗi về kết nối đến máy chủ
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-07-16T14:55:34+07:00.
+
+The user's current state is as follows:
+Active Document: c:\Users\luudu\Downloads\ioc-gopy-miniapp\src\pages\index.tsx (LANGUAGE_TSX)
+Cursor is on line: 201
+Other open documents:
+- c:\Users\luudu\Downloads\ioc-gopy-miniapp\src\pages\index.tsx (LANGUAGE_TSX)
+- c:\Users\luudu\Downloads\ioc-gopy-miniapp\.env (LANGUAGE_UNSPECIFIED)
+- c:\Users\luudu\Downloads\ioc-gopy-miniapp\.gitignore (LANGUAGE_UNSPECIFIED)
+- c:\Users\luudu\Downloads\ioc-gopy-miniapp\vite.config.mts (LANGUAGE_TYPESCRIPT)
+</ADDITIONAL_METADATA>
+---
+<USER_REQUEST>
+chọn cách 2
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-07-16T14:57:31+07:00.
+
+The user's current state is as follows:
+Active Document: c:\Users\luudu\Downloads\ioc-gopy-miniapp\src\pages\index.tsx (LANGUAGE_TSX)
+Cursor is on line: 201
+Other open documents:
+- c:\Users\luudu\Downloads\ioc-gopy-miniapp\src\pages\index.tsx (LANGUAGE_TSX)
+- c:\Users\luudu\Downloads\ioc-gopy-miniapp\.env (LANGUAGE_UNSPECIFIED)
+- c:\Users\luudu\Downloads\ioc-gopy-miniapp\.gitignore (LANGUAGE_UNSPECIFIED)
+- c:\Users\luudu\Downloads\ioc-gopy-miniapp\vite.config.mts (LANGUAGE_TYPESCRIPT)
+</ADDITIONAL_METADATA>
+---
+<USER_REQUEST>
+chỉnh sửa tại sao lỗi tải ảnh và video lên
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-07-16T15:02:30+07:00.
+
+The user's current state is as follows:
+Active Document: c:\Users\luudu\Downloads\ioc-gopy-miniapp\src\pages\index.tsx (LANGUAGE_TSX)
+Cursor is on line: 201
+Other open documents:
+- c:\Users\luudu\Downloads\ioc-gopy-miniapp\src\pages\index.tsx (LANGUAGE_TSX)
+- c:\Users\luudu\Downloads\ioc-gopy-miniapp\.env (LANGUAGE_UNSPECIFIED)
+- c:\Users\luudu\Downloads\ioc-gopy-miniapp\api-proxy\vercel.json (LANGUAGE_JSON)
+- c:\Users\luudu\Downloads\ioc-gopy-miniapp\api-proxy\package.json (LANGUAGE_JSON)
+- c:\Users\luudu\Downloads\ioc-gopy-miniapp\api-proxy\index.js (LANGUAGE_JAVASCRIPT)
+</ADDITIONAL_METADATA>
+---

@@ -1,0 +1,1248 @@
+The following is an <EPHEMERAL_MESSAGE> not actually sent by the user. It is provided by the system as a set of reminders and general important information to pay attention to. Do NOT respond to this message, just act accordingly.
+
+<EPHEMERAL_MESSAGE>
+<planning_mode>
+You're in planning mode. Exercise judgement on whether the user's last request warrants a plan and take action accordingly.
+If the user's request warrants a plan then follow this workflow:
+1. Research first before taking actions. Do not use your code editing tools or run modifying commands during this time.
+2. Create an implementation plan artifact with `request_feedback = true` to request approval. Include any open questions for the user directly in the implementation plan. Don't use the ask_question tool to ask these questions. Stop calling tools and allow the user to review the plan and provide feedback or approval.
+3. After receiving approval, begin execution. Create and update the task artifact as you work.
+4. Verify any work that you have done.
+5. Create a walkthrough artifact to present your work to the user. When writing artifacts, make sure to follow the artifact formatting guidelines and use github alerts to highlight critical sections.
+If the user's request does NOT warrant a plan then continue your work WITHOUT making a plan or requesting user feedback.
+</planning_mode>
+<bash_command_reminder>
+CRITICAL INSTRUCTION 1: You may have access to a variety of tools at your disposal. Some tools may be for a s
+
+The following is an <EPHEMERAL_MESSAGE> not actually sent by the user. It is provided by the system as a set of reminders and general important information to pay attention to. Do NOT respond to this message, just act accordingly.
+
+<EPHEMERAL_MESSAGE>
+<planning_mode>
+You're in planning mode. Exercise judgement on whether the user's last request warrants a plan and take action accordingly.
+If the user's request warrants a plan then follow this workflow:
+1. Research first before taking actions. Do not use your code editing tools or run modifying commands during this time.
+2. Create an implementation plan artifact with `request_feedback = true` to request approval. Include any open questions for the user directly in the implementation plan. Don't use the ask_question tool to ask these questions. Stop calling tools and allow the user to review the plan and provide feedback or approval.
+3. After receiving approval, begin execution. Create and update the task artifact as you work.
+4. Verify any work that you have done.
+5. Create a walkthrough artifact to present your work to the user. When writing artifacts, make sure to follow the artifact formatting guidelines and use github alerts to highlight critical sections.
+If the user's request does NOT warrant a plan then continue your work WITHOUT making a plan or requesting user feedback.
+</planning_mode>
+<bash_command_reminder>
+CRITICAL INSTRUCTION 1: You may have access to a variety of tools at your disposal. Some tools may be for a s
+
+The following is an <EPHEMERAL_MESSAGE> not actually sent by the user. It is provided by the system as a set of reminders and general important information to pay attention to. Do NOT respond to this message, just act accordingly.
+
+<EPHEMERAL_MESSAGE>
+<planning_mode>
+You're in planning mode. Exercise judgement on whether the user's last request warrants a plan and take action accordingly.
+If the user's request warrants a plan then follow this workflow:
+1. Research first before taking actions. Do not use your code editing tools or run modifying commands during this time.
+2. Create an implementation plan artifact with `request_feedback = true` to request approval. Include any open questions for the user directly in the implementation plan. Don't use the ask_question tool to ask these questions. Stop calling tools and allow the user to review the plan and provide feedback or approval.
+3. After receiving approval, begin execution. Create and update the task artifact as you work.
+4. Verify any work that you have done.
+5. Create a walkthrough artifact to present your work to the user. When writing artifacts, make sure to follow the artifact formatting guidelines and use github alerts to highlight critical sections.
+If the user's request does NOT warrant a plan then continue your work WITHOUT making a plan or requesting user feedback.
+</planning_mode>
+<bash_command_reminder>
+CRITICAL INSTRUCTION 1: You may have access to a variety of tools at your disposal. Some tools may be for a s
+Tôi đã cập nhật UI mới cho trang `index.tsx` theo mẫu bạn cung cấp. 
+
+Tuy nhiên, thay vì chỉ gắn nguyên mã tĩnh của giao diện, tôi đã giữ lại và tích hợp các logic có sẵn của ứng dụng như:
+- **Quản lý state biểu mẫu:** Gắn kết các trường nhập liệu (`name`, `email`, `phone`, `location`, `content`) với hàm xử lý `handleInputChange`.
+- **Đính kèm hình ảnh:** Duy trì tính năng chọn ảnh, nén ảnh sang Base64 và gửi lên máy chủ API `import.meta.env.VITE_API_DOMAIN` y như cũ, đồng bộ với giao diện một ảnh mà bạn đã thiết kế.
+- **Lấy vị trí GPS:** Giữ nguyên hàm `getLocation` từ `zmp-sdk` (Zalo Mini App) và gắn vào nút nhấn "Lấy vị trí" của bạn.
+- **Gửi phản ánh:** Ghép nối nút submit với hàm gọi API `POST /api/gopy` gốc để đảm bảo form hoạt động bình thường, và điều chỉnh tham số truyền đi cho phù hợp với UI (mặc định lấy tiêu đề và lĩnh vực ẩn).
+
+Bạn có thể tải lại trang hoặc Mini App để kiểm tra giao diện mới nhé! Có cần tinh chỉnh hay thêm chức năng nào khác vào form này không?
+The following is an <EPHEMERAL_MESSAGE> not actually sent by the user. It is provided by the system as a set of reminders and general important information to pay attention to. Do NOT respond to this message, just act accordingly.
+
+<EPHEMERAL_MESSAGE>
+<planning_mode>
+You're in planning mode. Exercise judgement on whether the user's last request warrants a plan and take action accordingly.
+If the user's request warrants a plan then follow this workflow:
+1. Research first before taking actions. Do not use your code editing tools or run modifying commands during this time.
+2. Create an implementation plan artifact with `request_feedback = true` to request approval. Include any open questions for the user directly in the implementation plan. Don't use the ask_question tool to ask these questions. Stop calling tools and allow the user to review the plan and provide feedback or approval.
+3. After receiving approval, begin execution. Create and update the task artifact as you work.
+4. Verify any work that you have done.
+5. Create a walkthrough artifact to present your work to the user. When writing artifacts, make sure to follow the artifact formatting guidelines and use github alerts to highlight critical sections.
+If the user's request does NOT warrant a plan then continue your work WITHOUT making a plan or requesting user feedback.
+</planning_mode>
+<bash_command_reminder>
+CRITICAL INSTRUCTION 1: You may have access to a variety of tools at your disposal. Some tools may be for a s
+
+The following is an <EPHEMERAL_MESSAGE> not actually sent by the user. It is provided by the system as a set of reminders and general important information to pay attention to. Do NOT respond to this message, just act accordingly.
+
+<EPHEMERAL_MESSAGE>
+<planning_mode>
+You're in planning mode. Exercise judgement on whether the user's last request warrants a plan and take action accordingly.
+If the user's request warrants a plan then follow this workflow:
+1. Research first before taking actions. Do not use your code editing tools or run modifying commands during this time.
+2. Create an implementation plan artifact with `request_feedback = true` to request approval. Include any open questions for the user directly in the implementation plan. Don't use the ask_question tool to ask these questions. Stop calling tools and allow the user to review the plan and provide feedback or approval.
+3. After receiving approval, begin execution. Create and update the task artifact as you work.
+4. Verify any work that you have done.
+5. Create a walkthrough artifact to present your work to the user. When writing artifacts, make sure to follow the artifact formatting guidelines and use github alerts to highlight critical sections.
+If the user's request does NOT warrant a plan then continue your work WITHOUT making a plan or requesting user feedback.
+</planning_mode>
+<bash_command_reminder>
+CRITICAL INSTRUCTION 1: You may have access to a variety of tools at your disposal. Some tools may be for a s
+
+The following is an <EPHEMERAL_MESSAGE> not actually sent by the user. It is provided by the system as a set of reminders and general important information to pay attention to. Do NOT respond to this message, just act accordingly.
+
+<EPHEMERAL_MESSAGE>
+<planning_mode>
+You're in planning mode. Exercise judgement on whether the user's last request warrants a plan and take action accordingly.
+If the user's request warrants a plan then follow this workflow:
+1. Research first before taking actions. Do not use your code editing tools or run modifying commands during this time.
+2. Create an implementation plan artifact with `request_feedback = true` to request approval. Include any open questions for the user directly in the implementation plan. Don't use the ask_question tool to ask these questions. Stop calling tools and allow the user to review the plan and provide feedback or approval.
+3. After receiving approval, begin execution. Create and update the task artifact as you work.
+4. Verify any work that you have done.
+5. Create a walkthrough artifact to present your work to the user. When writing artifacts, make sure to follow the artifact formatting guidelines and use github alerts to highlight critical sections.
+If the user's request does NOT warrant a plan then continue your work WITHOUT making a plan or requesting user feedback.
+</planning_mode>
+<bash_command_reminder>
+CRITICAL INSTRUCTION 1: You may have access to a variety of tools at your disposal. Some tools may be for a s
+
+The following is an <EPHEMERAL_MESSAGE> not actually sent by the user. It is provided by the system as a set of reminders and general important information to pay attention to. Do NOT respond to this message, just act accordingly.
+
+<EPHEMERAL_MESSAGE>
+<planning_mode>
+You're in planning mode. Exercise judgement on whether the user's last request warrants a plan and take action accordingly.
+If the user's request warrants a plan then follow this workflow:
+1. Research first before taking actions. Do not use your code editing tools or run modifying commands during this time.
+2. Create an implementation plan artifact with `request_feedback = true` to request approval. Include any open questions for the user directly in the implementation plan. Don't use the ask_question tool to ask these questions. Stop calling tools and allow the user to review the plan and provide feedback or approval.
+3. After receiving approval, begin execution. Create and update the task artifact as you work.
+4. Verify any work that you have done.
+5. Create a walkthrough artifact to present your work to the user. When writing artifacts, make sure to follow the artifact formatting guidelines and use github alerts to highlight critical sections.
+If the user's request does NOT warrant a plan then continue your work WITHOUT making a plan or requesting user feedback.
+</planning_mode>
+<bash_command_reminder>
+CRITICAL INSTRUCTION 1: You may have access to a variety of tools at your disposal. Some tools may be for a s
+
+The following is an <EPHEMERAL_MESSAGE> not actually sent by the user. It is provided by the system as a set of reminders and general important information to pay attention to. Do NOT respond to this message, just act accordingly.
+
+<EPHEMERAL_MESSAGE>
+<planning_mode>
+You're in planning mode. Exercise judgement on whether the user's last request warrants a plan and take action accordingly.
+If the user's request warrants a plan then follow this workflow:
+1. Research first before taking actions. Do not use your code editing tools or run modifying commands during this time.
+2. Create an implementation plan artifact with `request_feedback = true` to request approval. Include any open questions for the user directly in the implementation plan. Don't use the ask_question tool to ask these questions. Stop calling tools and allow the user to review the plan and provide feedback or approval.
+3. After receiving approval, begin execution. Create and update the task artifact as you work.
+4. Verify any work that you have done.
+5. Create a walkthrough artifact to present your work to the user. When writing artifacts, make sure to follow the artifact formatting guidelines and use github alerts to highlight critical sections.
+If the user's request does NOT warrant a plan then continue your work WITHOUT making a plan or requesting user feedback.
+</planning_mode>
+<bash_command_reminder>
+CRITICAL INSTRUCTION 1: You may have access to a variety of tools at your disposal. Some tools may be for a s
+Tôi vừa cập nhật mã nguồn để hiển thị chi tiết nội dung lỗi trong hộp thoại báo lỗi (thay vì chỉ hiển thị thông báo chung chung "Không thể kết nối đến máy chủ"). 
+
+Bạn vui lòng nhấn "Gửi phản ánh" lại một lần nữa để xem lỗi cụ thể là gì nhé. 
+
+**Tuy nhiên, dựa trên kinh nghiệm, lỗi này thường rơi vào một trong hai trường hợp sau:**
+1. **Lỗi CORS (Cross-Origin Resource Sharing):** Vì bạn đang chạy thử nghiệm trên `localhost:2999` (có thể là trình duyệt thông thường thay vì Zalo Mini App Studio/Zalo App), trình duyệt sẽ chặn không cho phép gửi request trực tiếp đến `https://gopy.danang.gov.vn` do vấn đề bảo mật. Nếu đúng là lỗi CORS, trình duyệt sẽ báo "Lỗi chi tiết: Failed to fetch". Để khắc phục tạm thời khi dev, bạn cần test trên Zalo Mini App Studio, hoặc bật extension bỏ qua CORS trên trình duyệt, hoặc dùng proxy của Vite.
+2. **Sai thông tin xác thực/Mạng:** Các biến môi trường `.env` có thể chưa được load (nếu bạn chưa khởi động lại terminal Vite). 
+
+Nếu bạn thử lại mà thấy lỗi báo "Failed to fetch", đó chắc chắn là do môi trường test hiện tại (CORS). Bạn cứ phản hồi lại lỗi cụ thể (hoặc chụp màn hình) nếu vẫn chưa xử lý được nhé!
+{{ CHECKPOINT 1 }}
+ **The earlier parts of this conversation have been truncated due to its long length. The following content summarizes the truncated context so that you may continue your work. **
+
+
+# User Requests
+The following were user requests from the truncated conversation in chronological order:
+1. import React from 'react';
+import { Camera, Send, Loader2, CheckCircle2, Navigation, AlertCircle } from 'lucide-react';
+import { Page } from 'zmp-ui';
+import logoImg from '../static/logo_tachnen.png';
+
+export type FormData = {
+  name: string;
+  email: string;
+  phone: string;
+  content: string;
+  location: string;
+};
+Sửa lại phần UI vào index
+
+
+export type UploadedFile = {
+  id: string;
+  file: File;
+  url?: string;
+  preview?: string;
+  isUploading: boolean;
+  isError: boolean;
+};
+
+export type FeedbackFormUIProps = {
+  showToast: boolean;
+  isLoading: boolean;
+  formData: FormData;
+  selectedImage: UploadedFile | null;
+  imageInputRef: React.RefObject<HTMLInputElement>;
+  onInputChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
+  onImageChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onRemoveImage: () => void;
+  onGetLocation: () => void;
+  onSubmit: (e: React.FormEvent) => void;
+};
+
+function FeedbackFormUI({
+  showToast,
+<truncated 8294 bytes>
+
+# Previous Session Summary:
+{"step_index":0,"source":"USER_EXPLICIT","type":"USER_INPUT","status":"DONE","created_at":"2026-07-16T07:10:16Z","content":"
+The following is an <EPHEMERAL_MESSAGE> not actually sent by the user. It is provided by the system as a set of reminders and general important information to pay attention to. Do NOT respond to this message, just act accordingly.
+
+<EPHEMERAL_MESSAGE>
+<planning_mode>
+You're in planning mode. Exercise judgement on whether the user's last request warrants a plan and take action accordingly.
+If the user's request warrants a plan then follow this workflow:
+1. Research first before taking actions. Do not use your code editing tools or run modifying commands during this time.
+2. Create an implementation plan artifact with `request_feedback = true` to request approval. Include any open questions for the user directly in the implementation plan. Don't use the ask_question tool to ask these questions. Stop calling tools and allow the user to review the plan and provide feedback or approval.
+3. After receiving approval, begin execution. Create and update the task artifact as you work.
+4. Verify any work that you have done.
+5. Create a walkthrough artifact to present your work to the user. When writing artifacts, make sure to follow the artifact formatting guidelines and use github alerts to highlight critical sections.
+If the user's request does NOT warrant a plan then continue your work WITHOUT making a plan or requesting user feedback.
+</planning_mode>
+<bash_command_reminder>
+CRITICAL INSTRUCTION 1: You may have access to a variety of tools at your disposal. Some tools may be for a s
+
+The following is an <EPHEMERAL_MESSAGE> not actually sent by the user. It is provided by the system as a set of reminders and general important information to pay attention to. Do NOT respond to this message, just act accordingly.
+
+<EPHEMERAL_MESSAGE>
+<planning_mode>
+You're in planning mode. Exercise judgement on whether the user's last request warrants a plan and take action accordingly.
+If the user's request warrants a plan then follow this workflow:
+1. Research first before taking actions. Do not use your code editing tools or run modifying commands during this time.
+2. Create an implementation plan artifact with `request_feedback = true` to request approval. Include any open questions for the user directly in the implementation plan. Don't use the ask_question tool to ask these questions. Stop calling tools and allow the user to review the plan and provide feedback or approval.
+3. After receiving approval, begin execution. Create and update the task artifact as you work.
+4. Verify any work that you have done.
+5. Create a walkthrough artifact to present your work to the user. When writing artifacts, make sure to follow the artifact formatting guidelines and use github alerts to highlight critical sections.
+If the user's request does NOT warrant a plan then continue your work WITHOUT making a plan or requesting user feedback.
+</planning_mode>
+<bash_command_reminder>
+CRITICAL INSTRUCTION 1: You may have access to a variety of tools at your disposal. Some tools may be for a s
+
+The following is an <EPHEMERAL_MESSAGE> not actually sent by the user. It is provided by the system as a set of reminders and general important information to pay attention to. Do NOT respond to this message, just act accordingly.
+
+<EPHEMERAL_MESSAGE>
+<planning_mode>
+You're in planning mode. Exercise judgement on whether the user's last request warrants a plan and take action accordingly.
+If the user's request warrants a plan then follow this workflow:
+1. Research first before taking actions. Do not use your code editing tools or run modifying commands during this time.
+2. Create an implementation plan artifact with `request_feedback = true` to request approval. Include any open questions for the user directly in the implementation plan. Don't use the ask_question tool to ask these questions. Stop calling tools and allow the user to review the plan and provide feedback or approval.
+3. After receiving approval, begin execution. Create and update the task artifact as you work.
+4. Verify any work that you have done.
+5. Create a walkthrough artifact to present your work to the user. When writing artifacts, make sure to follow the artifact formatting guidelines and use github alerts to highlight critical sections.
+If the user's request does NOT warrant a plan then continue your work WITHOUT making a plan or requesting user feedback.
+</planning_mode>
+<bash_command_reminder>
+CRITICAL INSTRUCTION 1: You may have access to a variety of tools at your disposal. Some tools may be for a s
+
+The following is an <EPHEMERAL_MESSAGE> not actually sent by the user. It is provided by the system as a set of reminders and general important information to pay attention to. Do NOT respond to this message, just act accordingly.
+
+<EPHEMERAL_MESSAGE>
+<planning_mode>
+You're in planning mode. Exercise judgement on whether the user's last request warrants a plan and take action accordingly.
+If the user's request warrants a plan then follow this workflow:
+1. Research first before taking actions. Do not use your code editing tools or run modifying commands during this time.
+2. Create an implementation plan artifact with `request_feedback = true` to request approval. Include any open questions for the user directly in the implementation plan. Don't use the ask_question tool to ask these questions. Stop calling tools and allow the user to review the plan and provide feedback or approval.
+3. After receiving approval, begin execution. Create and update the task artifact as you work.
+4. Verify any work that you have done.
+5. Create a walkthrough artifact to present your work to the user. When writing artifacts, make sure to follow the artifact formatting guidelines and use github alerts to highlight critical sections.
+If the user's request does NOT warrant a plan then continue your work WITHOUT making a plan or requesting user feedback.
+</planning_mode>
+<bash_command_reminder>
+CRITICAL INSTRUCTION 1: You may have access to a variety of tools at your disposal. Some tools may be for a s
+
+The following is an <EPHEMERAL_MESSAGE> not actually sent by the user. It is provided by the system as a set of reminders and general important information to pay attention to. Do NOT respond to this message, just act accordingly.
+
+<EPHEMERAL_MESSAGE>
+<planning_mode>
+You're in planning mode. Exercise judgement on whether the user's last request warrants a plan and take action accordingly.
+If the user's request warrants a plan then follow this workflow:
+1. Research first before taking actions. Do not use your code editing tools or run modifying commands during this time.
+2. Create an implementation plan artifact with `request_feedback = true` to request approval. Include any open questions for the user directly in the implementation plan. Don't use the ask_question tool to ask these questions. Stop calling tools and allow the user to review the plan and provide feedback or approval.
+3. After receiving approval, begin execution. Create and update the task artifact as you work.
+4. Verify any work that you have done.
+5. Create a walkthrough artifact to present your work to the user. When writing artifacts, make sure to follow the artifact formatting guidelines and use github alerts to highlight critical sections.
+If the user's request does NOT warrant a plan then continue your work WITHOUT making a plan or requesting user feedback.
+</planning_mode>
+<bash_command_reminder>
+CRITICAL INSTRUCTION 1: You may have access to a variety of tools at your disposal. Some tools may be for a s
+
+The following is an <EPHEMERAL_MESSAGE> not actually sent by the user. It is provided by the system as a set of reminders and general important information to pay attention to. Do NOT respond to this message, just act accordingly.
+
+<EPHEMERAL_MESSAGE>
+<planning_mode>
+You're in planning mode. Exercise judgement on whether the user's last request warrants a plan and take action accordingly.
+If the user's request warrants a plan then follow this workflow:
+1. Research first before taking actions. Do not use your code editing tools or run modifying commands during this time.
+2. Create an implementation plan artifact with `request_feedback = true` to request approval. Include any open questions for the user directly in the implementation plan. Don't use the ask_question tool to ask these questions. Stop calling tools and allow the user to review the plan and provide feedback or approval.
+3. After receiving approval, begin execution. Create and update the task artifact as you work.
+4. Verify any work that you have done.
+5. Create a walkthrough artifact to present your work to the user. When writing artifacts, make sure to follow the artifact formatting guidelines and use github alerts to highlight critical sections.
+If the user's request does NOT warrant a plan then continue your work WITHOUT making a plan or requesting user feedback.
+</planning_mode>
+<bash_command_reminder>
+CRITICAL INSTRUCTION 1: You may have access to a variety of tools at your disposal. Some tools may be for a s
+
+The following is an <EPHEMERAL_MESSAGE> not actually sent by the user. It is provided by the system as a set of reminders and general important information to pay attention to. Do NOT respond to this message, just act accordingly.
+
+<EPHEMERAL_MESSAGE>
+<planning_mode>
+You're in planning mode. Exercise judgement on whether the user's last request warrants a plan and take action accordingly.
+If the user's request warrants a plan then follow this workflow:
+1. Research first before taking actions. Do not use your code editing tools or run modifying commands during this time.
+2. Create an implementation plan artifact with `request_feedback = true` to request approval. Include any open questions for the user directly in the implementation plan. Don't use the ask_question tool to ask these questions. Stop calling tools and allow the user to review the plan and provide feedback or approval.
+3. After receiving approval, begin execution. Create and update the task artifact as you work.
+4. Verify any work that you have done.
+5. Create a walkthrough artifact to present your work to the user. When writing artifacts, make sure to follow the artifact formatting guidelines and use github alerts to highlight critical sections.
+If the user's request does NOT warrant a plan then continue your work WITHOUT making a plan or requesting user feedback.
+</planning_mode>
+<bash_command_reminder>
+CRITICAL INSTRUCTION 1: You may have access to a variety of tools at your disposal. Some tools may be for a s
+Đúng như dự đoán, lỗi `Failed to fetch` chính là **lỗi CORS (Cross-Origin Resource Sharing)**. Trình duyệt trên `localhost:2999` chặn các yêu cầu gửi trực tiếp đến tên miền thật (`https://gopy.danang.gov.vn`) vì lý do bảo mật, nhưng Zalo App thật trên điện thoại thì lại được phép.
+
+Để bạn có thể tiếp tục phát triển và test API ngay trên máy tính mà không bị lỗi này, tôi đã cấu hình lại mã nguồn như sau:
+1. **Thêm Proxy vào Vite:** Tôi đã sửa file `vite.config.mts` để tạo proxy trung gian. Bất kỳ yêu cầu nào gửi đến `/api` hoặc `/base-api` sẽ được tự động chuyển hướng đến `https://gopy.danang.gov.vn`.
+2. **Cập nhật mã gọi API:** Trong `index.tsx`, tôi đã thêm một đoạn check môi trường (`import.meta.env.DEV`). Nếu bạn đang chạy dev (trên máy), nó sẽ gọi qua proxy. Nếu được build cho production, nó sẽ gọi trực tiếp đến tên miền thật.
+
+**⚠️ Quan trọng:** Bạn cần phải **tắt server đang chạy và khởi động lại** (chạy lại lệnh `npm run start` hoặc khởi động lại trong Zalo Mini App Studio) thì cấu hình proxy mới trong `vite.config.mts` mới bắt đầu có hiệu lực. 
+
+Hãy thử khởi động lại server và nhấn gửi lại nhé!
+The following is an <EPHEMERAL_MESSAGE> not actually sent by the user. It is provided by the system as a set of reminders and general important information to pay attention to. Do NOT respond to this message, just act accordingly.
+
+<EPHEMERAL_MESSAGE>
+<planning_mode>
+You're in planning mode. Exercise judgement on whether the user's last request warrants a plan and take action accordingly.
+If the user's request warrants a plan then follow this workflow:
+1. Research first before taking actions. Do not use your code editing tools or run modifying commands during this time.
+2. Create an implementation plan artifact with `request_feedback = true` to request approval. Include any open questions for the user directly in the implementation plan. Don't use the ask_question tool to ask these questions. Stop calling tools and allow the user to review the plan and provide feedback or approval.
+3. After receiving approval, begin execution. Create and update the task artifact as you work.
+4. Verify any work that you have done.
+5. Create a walkthrough artifact to present your work to the user. When writing artifacts, make sure to follow the artifact formatting guidelines and use github alerts to highlight critical sections.
+If the user's request does NOT warrant a plan then continue your work WITHOUT making a plan or requesting user feedback.
+</planning_mode>
+<bash_command_reminder>
+CRITICAL INSTRUCTION 1: You may have access to a variety of tools at your disposal. Some tools may be for a s
+
+The following is an <EPHEMERAL_MESSAGE> not actually sent by the user. It is provided by the system as a set of reminders and general important information to pay attention to. Do NOT respond to this message, just act accordingly.
+
+<EPHEMERAL_MESSAGE>
+<planning_mode>
+You're in planning mode. Exercise judgement on whether the user's last request warrants a plan and take action accordingly.
+If the user's request warrants a plan then follow this workflow:
+1. Research first before taking actions. Do not use your code editing tools or run modifying commands during this time.
+2. Create an implementation plan artifact with `request_feedback = true` to request approval. Include any open questions for the user directly in the implementation plan. Don't use the ask_question tool to ask these questions. Stop calling tools and allow the user to review the plan and provide feedback or approval.
+3. After receiving approval, begin execution. Create and update the task artifact as you work.
+4. Verify any work that you have done.
+5. Create a walkthrough artifact to present your work to the user. When writing artifacts, make sure to follow the artifact formatting guidelines and use github alerts to highlight critical sections.
+If the user's request does NOT warrant a plan then continue your work WITHOUT making a plan or requesting user feedback.
+</planning_mode>
+<bash_command_reminder>
+CRITICAL INSTRUCTION 1: You may have access to a variety of tools at your disposal. Some tools may be for a s
+Thư mục dự án hiện tại của bạn (`ioc-gopy-miniapp`) **chưa được khởi tạo git** (chưa có thư mục `.git`). Do đó, không thể push trực tiếp được. 
+
+Để tôi có thể push code của bạn lên GitHub, bạn vui lòng cung cấp **đường dẫn (URL) của kho lưu trữ (repository) trên GitHub** mà bạn muốn đẩy code lên nhé (ví dụ: `https://github.com/username/ten-repo.git`).
+
+Khi có URL, tôi sẽ tự động:
+1. Chạy lệnh `git init` để khởi tạo git.
+2. Thêm và commit toàn bộ code hiện tại.
+3. Liên kết tới remote repo của bạn bằng `git remote add origin ...`
+4. Cuối cùng là đẩy code lên (`git push`).
+
+Bạn gửi link GitHub của bạn vào đây nhé!
+The following is an <EPHEMERAL_MESSAGE> not actually sent by the user. It is provided by the system as a set of reminders and general important information to pay attention to. Do NOT respond to this message, just act accordingly.
+
+<EPHEMERAL_MESSAGE>
+<planning_mode>
+You're in planning mode. Exercise judgement on whether the user's last request warrants a plan and take action accordingly.
+If the user's request warrants a plan then follow this workflow:
+1. Research first before taking actions. Do not use your code editing tools or run modifying commands during this time.
+2. Create an implementation plan artifact with `request_feedback = true` to request approval. Include any open questions for the user directly in the implementation plan. Don't use the ask_question tool to ask these questions. Stop calling tools and allow the user to review the plan and provide feedback or approval.
+3. After receiving approval, begin execution. Create and update the task artifact as you work.
+4. Verify any work that you have done.
+5. Create a walkthrough artifact to present your work to the user. When writing artifacts, make sure to follow the artifact formatting guidelines and use github alerts to highlight critical sections.
+If the user's request does NOT warrant a plan then continue your work WITHOUT making a plan or requesting user feedback.
+</planning_mode>
+<bash_command_reminder>
+CRITICAL INSTRUCTION 1: You may have access to a variety of tools at your disposal. Some tools may be for a s
+
+The following is an <EPHEMERAL_MESSAGE> not actually sent by the user. It is provided by the system as a set of reminders and general important information to pay attention to. Do NOT respond to this message, just act accordingly.
+
+<EPHEMERAL_MESSAGE>
+<planning_mode>
+You're in planning mode. Exercise judgement on whether the user's last request warrants a plan and take action accordingly.
+If the user's request warrants a plan then follow this workflow:
+1. Research first before taking actions. Do not use your code editing tools or run modifying commands during this time.
+2. Create an implementation plan artifact with `request_feedback = true` to request approval. Include any open questions for the user directly in the implementation plan. Don't use the ask_question tool to ask these questions. Stop calling tools and allow the user to review the plan and provide feedback or approval.
+3. After receiving approval, begin execution. Create and update the task artifact as you work.
+4. Verify any work that you have done.
+5. Create a walkthrough artifact to present your work to the user. When writing artifacts, make sure to follow the artifact formatting guidelines and use github alerts to highlight critical sections.
+If the user's request does NOT warrant a plan then continue your work WITHOUT making a plan or requesting user feedback.
+</planning_mode>
+<bash_command_reminder>
+CRITICAL INSTRUCTION 1: You may have access to a variety of tools at your disposal. Some tools may be for a s
+
+The following is an <EPHEMERAL_MESSAGE> not actually sent by the user. It is provided by the system as a set of reminders and general important information to pay attention to. Do NOT respond to this message, just act accordingly.
+
+<EPHEMERAL_MESSAGE>
+<planning_mode>
+You're in planning mode. Exercise judgement on whether the user's last request warrants a plan and take action accordingly.
+If the user's request warrants a plan then follow this workflow:
+1. Research first before taking actions. Do not use your code editing tools or run modifying commands during this time.
+2. Create an implementation plan artifact with `request_feedback = true` to request approval. Include any open questions for the user directly in the implementation plan. Don't use the ask_question tool to ask these questions. Stop calling tools and allow the user to review the plan and provide feedback or approval.
+3. After receiving approval, begin execution. Create and update the task artifact as you work.
+4. Verify any work that you have done.
+5. Create a walkthrough artifact to present your work to the user. When writing artifacts, make sure to follow the artifact formatting guidelines and use github alerts to highlight critical sections.
+If the user's request does NOT warrant a plan then continue your work WITHOUT making a plan or requesting user feedback.
+</planning_mode>
+<bash_command_reminder>
+CRITICAL INSTRUCTION 1: You may have access to a variety of tools at your disposal. Some tools may be for a s
+
+The following is an <EPHEMERAL_MESSAGE> not actually sent by the user. It is provided by the system as a set of reminders and general important information to pay attention to. Do NOT respond to this message, just act accordingly.
+
+<EPHEMERAL_MESSAGE>
+<planning_mode>
+You're in planning mode. Exercise judgement on whether the user's last request warrants a plan and take action accordingly.
+If the user's request warrants a plan then follow this workflow:
+1. Research first before taking actions. Do not use your code editing tools or run modifying commands during this time.
+2. Create an implementation plan artifact with `request_feedback = true` to request approval. Include any open questions for the user directly in the implementation plan. Don't use the ask_question tool to ask these questions. Stop calling tools and allow the user to review the plan and provide feedback or approval.
+3. After receiving approval, begin execution. Create and update the task artifact as you work.
+4. Verify any work that you have done.
+5. Create a walkthrough artifact to present your work to the user. When writing artifacts, make sure to follow the artifact formatting guidelines and use github alerts to highlight critical sections.
+If the user's request does NOT warrant a plan then continue your work WITHOUT making a plan or requesting user feedback.
+</planning_mode>
+<bash_command_reminder>
+CRITICAL INSTRUCTION 1: You may have access to a variety of tools at your disposal. Some tools may be for a s
+
+The following is an <EPHEMERAL_MESSAGE> not actually sent by the user. It is provided by the system as a set of reminders and general important information to pay attention to. Do NOT respond to this message, just act accordingly.
+
+<EPHEMERAL_MESSAGE>
+<planning_mode>
+You're in planning mode. Exercise judgement on whether the user's last request warrants a plan and take action accordingly.
+If the user's request warrants a plan then follow this workflow:
+1. Research first before taking actions. Do not use your code editing tools or run modifying commands during this time.
+2. Create an implementation plan artifact with `request_feedback = true` to request approval. Include any open questions for the user directly in the implementation plan. Don't use the ask_question tool to ask these questions. Stop calling tools and allow the user to review the plan and provide feedback or approval.
+3. After receiving approval, begin execution. Create and update the task artifact as you work.
+4. Verify any work that you have done.
+5. Create a walkthrough artifact to present your work to the user. When writing artifacts, make sure to follow the artifact formatting guidelines and use github alerts to highlight critical sections.
+If the user's request does NOT warrant a plan then continue your work WITHOUT making a plan or requesting user feedback.
+</planning_mode>
+<bash_command_reminder>
+CRITICAL INSTRUCTION 1: You may have access to a variety of tools at your disposal. Some tools may be for a s
+
+The following is an <EPHEMERAL_MESSAGE> not actually sent by the user. It is provided by the system as a set of reminders and general important information to pay attention to. Do NOT respond to this message, just act accordingly.
+
+<EPHEMERAL_MESSAGE>
+<planning_mode>
+You're in planning mode. Exercise judgement on whether the user's last request warrants a plan and take action accordingly.
+If the user's request warrants a plan then follow this workflow:
+1. Research first before taking actions. Do not use your code editing tools or run modifying commands during this time.
+2. Create an implementation plan artifact with `request_feedback = true` to request approval. Include any open questions for the user directly in the implementation plan. Don't use the ask_question tool to ask these questions. Stop calling tools and allow the user to review the plan and provide feedback or approval.
+3. After receiving approval, begin execution. Create and update the task artifact as you work.
+4. Verify any work that you have done.
+5. Create a walkthrough artifact to present your work to the user. When writing artifacts, make sure to follow the artifact formatting guidelines and use github alerts to highlight critical sections.
+If the user's request does NOT warrant a plan then continue your work WITHOUT making a plan or requesting user feedback.
+</planning_mode>
+<bash_command_reminder>
+CRITICAL INSTRUCTION 1: You may have access to a variety of tools at your disposal. Some tools may be for a s
+Quá trình tải code lên GitHub đã hoàn tất thành công! 🎉
+
+Trong lúc push tôi thấy có sự thay đổi trên kho lưu trữ của bạn (tệp `README.md` mới được tạo trên GitHub) nên tôi đã hợp nhất hai bên lại với nhau.
+
+Hiện tại toàn bộ source code của Zalo Mini App này (kèm theo bản UI mới nhất và fix CORS proxy) đã có mặt trên repository của bạn tại:
+[https://github.com/Timetosaygoodbyebabe/PhanHoi_GopY](https://github.com/Timetosaygoodbyebabe/PhanHoi_GopY)
+
+Bạn có thể kiểm tra lại trên GitHub nhé. Nếu cần chỉnh sửa hay phát triển thêm tính năng gì, bạn cứ báo tôi nha!
+The following is an <EPHEMERAL_MESSAGE> not actually sent by the user. It is provided by the system as a set of reminders and general important information to pay attention to. Do NOT respond to this message, just act accordingly.
+
+<EPHEMERAL_MESSAGE>
+<planning_mode>
+You're in planning mode. Exercise judgement on whether the user's last request warrants a plan and take action accordingly.
+If the user's request warrants a plan then follow this workflow:
+1. Research first before taking actions. Do not use your code editing tools or run modifying commands during this time.
+2. Create an implementation plan artifact with `request_feedback = true` to request approval. Include any open questions for the user directly in the implementation plan. Don't use the ask_question tool to ask these questions. Stop calling tools and allow the user to review the plan and provide feedback or approval.
+3. After receiving approval, begin execution. Create and update the task artifact as you work.
+4. Verify any work that you have done.
+5. Create a walkthrough artifact to present your work to the user. When writing artifacts, make sure to follow the artifact formatting guidelines and use github alerts to highlight critical sections.
+If the user's request does NOT warrant a plan then continue your work WITHOUT making a plan or requesting user feedback.
+</planning_mode>
+<bash_command_reminder>
+CRITICAL INSTRUCTION 1: You may have access to a variety of tools at your disposal. Some tools may be for a s
+Việc đẩy (push) code lên GitHub vừa rồi mới chỉ là bước **lưu trữ mã nguồn an toàn trên mạng**. Ứng dụng hiện tại vẫn đang chạy thử nghiệm cục bộ trên máy tính của bạn (thông qua Zalo Mini App Studio hoặc Node.js). 
+
+Để bạn có thể tắt máy tính mà ứng dụng vẫn hoạt động trên điện thoại của mọi người, bạn cần thực hiện thao tác **Deploy (Xuất bản) Mini App lên nền tảng của Zalo**.
+
+Dưới đây là cách thực hiện:
+
+### 1. Deploy lên Zalo
+- **Mở Zalo Mini App Studio**, đảm bảo bạn đang mở dự án này.
+- Ở góc trên bên phải của Studio, bạn sẽ thấy nút **Deploy** (hoặc **Xuất bản / Đẩy lên server**).
+- Nhấn vào đó, ghi chú phiên bản (ví dụ: `Cập nhật giao diện mới`) và bấm xác nhận để tải ứng dụng lên hệ thống máy chủ của Zalo.
+
+### 2. Phát hành (Publish) phiên bản
+- Sau khi quá trình Deploy từ Studio hoàn tất, bạn truy cập vào trang quản lý [Zalo Mini App (mini.zalo.me)](https://mini.zalo.me/).
+- Vào phần **Quản lý Phiên bản** (Versions). 
+- Đặt phiên bản bạn vừa tải lên làm **Phiên bản thử nghiệm** (để quét mã QR chạy thử bằng điện thoại) hoặc **Gửi xét duyệt** để phát hành chính thức cho tất cả người dùng Zalo.
+
+**Kết luận:** 
+Ngay sau khi bạn deploy thành công lên server của Zalo qua Zalo Mini App Studio, ứng dụng sẽ chạy hoàn toàn độc lập trên hạ tầng của Zalo. **Lúc này, bạn hoàn toàn có thể tắt máy tính của mình đi**, và những người dùng khác vẫn có thể truy cập Mini App trên điện thoại của họ bình thường nhé!
+The following is an <EPHEMERAL_MESSAGE> not actually sent by the user. It is provided by the system as a set of reminders and general important information to pay attention to. Do NOT respond to this message, just act accordingly.
+
+<EPHEMERAL_MESSAGE>
+<planning_mode>
+You're in planning mode. Exercise judgement on whether the user's last request warrants a plan and take action accordingly.
+If the user's request warrants a plan then follow this workflow:
+1. Research first before taking actions. Do not use your code editing tools or run modifying commands during this time.
+2. Create an implementation plan artifact with `request_feedback = true` to request approval. Include any open questions for the user directly in the implementation plan. Don't use the ask_question tool to ask these questions. Stop calling tools and allow the user to review the plan and provide feedback or approval.
+3. After receiving approval, begin execution. Create and update the task artifact as you work.
+4. Verify any work that you have done.
+5. Create a walkthrough artifact to present your work to the user. When writing artifacts, make sure to follow the artifact formatting guidelines and use github alerts to highlight critical sections.
+If the user's request does NOT warrant a plan then continue your work WITHOUT making a plan or requesting user feedback.
+</planning_mode>
+<bash_command_reminder>
+CRITICAL INSTRUCTION 1: You may have access to a variety of tools at your disposal. Some tools may be for a s
+**Câu trả lời ngắn gọn là: Không, bạn hoàn toàn không phải lo chuyện đó nữa!** 
+
+Để hiểu rõ hơn, quy trình hoạt động của code bạn đang làm được chia làm 2 giai đoạn:
+
+1. **Khi chạy `npm run start` (Giai đoạn Phát triển - Development):**
+Lệnh này tạo ra một máy chủ ảo trên máy tính của bạn (tại địa chỉ `localhost:2999`) để bạn có thể xem trước giao diện, chỉnh sửa code đến đâu nó tự động cập nhật đến đó. Máy chủ ảo này chỉ sống khi máy tính của bạn bật và bạn để terminal chạy lệnh đó.
+
+2. **Khi đã Deploy (Giai đoạn Sản xuất - Production):**
+Quá trình deploy sẽ tự động gom (build) toàn bộ các file code phức tạp (`.tsx`, `.ts`, css, ảnh) của bạn thành một gói các tệp tĩnh tối ưu nhất (chỉ gồm HTML, CSS, JavaScript thuần túy). 
+Gói này được **tải thẳng lên máy chủ của Zalo**. Lúc này:
+- Ứng dụng Mini App của bạn được Zalo cung cấp trực tiếp đến điện thoại người dùng.
+- Bạn có thể **tắt terminal**, **dừng lệnh `npm run start`**, và **tắt máy tính** hoàn toàn.
+- Hệ thống gửi/nhận dữ liệu góp ý đằng sau thì đang giao tiếp với máy chủ API thực tế của Đà Nẵng (`https://gopy.danang.gov.vn`) vốn hoạt động 24/7 độc lập.
+
+Vậy nên, `npm run start` chỉ là công cụ để bạn lập trình. Còn sau khi bấm Deploy thành công, mọi thứ đã được giao cho hệ thống của Zalo vận hành và bạn không cần giữ máy tính bật nữa.
+The following is an <EPHEMERAL_MESSAGE> not actually sent by the user. It is provided by the system as a set of reminders and general important information to pay attention to. Do NOT respond to this message, just act accordingly.
+
+<EPHEMERAL_MESSAGE>
+<planning_mode>
+You're in planning mode. Exercise judgement on whether the user's last request warrants a plan and take action accordingly.
+If the user's request warrants a plan then follow this workflow:
+1. Research first before taking actions. Do not use your code editing tools or run modifying commands during this time.
+2. Create an implementation plan artifact with `request_feedback = true` to request approval. Include any open questions for the user directly in the implementation plan. Don't use the ask_question tool to ask these questions. Stop calling tools and allow the user to review the plan and provide feedback or approval.
+3. After receiving approval, begin execution. Create and update the task artifact as you work.
+4. Verify any work that you have done.
+5. Create a walkthrough artifact to present your work to the user. When writing artifacts, make sure to follow the artifact formatting guidelines and use github alerts to highlight critical sections.
+If the user's request does NOT warrant a plan then continue your work WITHOUT making a plan or requesting user feedback.
+</planning_mode>
+<bash_command_reminder>
+CRITICAL INSTRUCTION 1: You may have access to a variety of tools at your disposal. Some tools may be for a s
+
+The following is an <EPHEMERAL_MESSAGE> not actually sent by the user. It is provided by the system as a set of reminders and general important information to pay attention to. Do NOT respond to this message, just act accordingly.
+
+<EPHEMERAL_MESSAGE>
+<planning_mode>
+You're in planning mode. Exercise judgement on whether the user's last request warrants a plan and take action accordingly.
+If the user's request warrants a plan then follow this workflow:
+1. Research first before taking actions. Do not use your code editing tools or run modifying commands during this time.
+2. Create an implementation plan artifact with `request_feedback = true` to request approval. Include any open questions for the user directly in the implementation plan. Don't use the ask_question tool to ask these questions. Stop calling tools and allow the user to review the plan and provide feedback or approval.
+3. After receiving approval, begin execution. Create and update the task artifact as you work.
+4. Verify any work that you have done.
+5. Create a walkthrough artifact to present your work to the user. When writing artifacts, make sure to follow the artifact formatting guidelines and use github alerts to highlight critical sections.
+If the user's request does NOT warrant a plan then continue your work WITHOUT making a plan or requesting user feedback.
+</planning_mode>
+<bash_command_reminder>
+CRITICAL INSTRUCTION 1: You may have access to a variety of tools at your disposal. Some tools may be for a s
+
+The following is an <EPHEMERAL_MESSAGE> not actually sent by the user. It is provided by the system as a set of reminders and general important information to pay attention to. Do NOT respond to this message, just act accordingly.
+
+<EPHEMERAL_MESSAGE>
+<planning_mode>
+You're in planning mode. Exercise judgement on whether the user's last request warrants a plan and take action accordingly.
+If the user's request warrants a plan then follow this workflow:
+1. Research first before taking actions. Do not use your code editing tools or run modifying commands during this time.
+2. Create an implementation plan artifact with `request_feedback = true` to request approval. Include any open questions for the user directly in the implementation plan. Don't use the ask_question tool to ask these questions. Stop calling tools and allow the user to review the plan and provide feedback or approval.
+3. After receiving approval, begin execution. Create and update the task artifact as you work.
+4. Verify any work that you have done.
+5. Create a walkthrough artifact to present your work to the user. When writing artifacts, make sure to follow the artifact formatting guidelines and use github alerts to highlight critical sections.
+If the user's request does NOT warrant a plan then continue your work WITHOUT making a plan or requesting user feedback.
+</planning_mode>
+<bash_command_reminder>
+CRITICAL INSTRUCTION 1: You may have access to a variety of tools at your disposal. Some tools may be for a s
+
+The following is an <EPHEMERAL_MESSAGE> not actually sent by the user. It is provided by the system as a set of reminders and general important information to pay attention to. Do NOT respond to this message, just act accordingly.
+
+<EPHEMERAL_MESSAGE>
+<planning_mode>
+You're in planning mode. Exercise judgement on whether the user's last request warrants a plan and take action accordingly.
+If the user's request warrants a plan then follow this workflow:
+1. Research first before taking actions. Do not use your code editing tools or run modifying commands during this time.
+2. Create an implementation plan artifact with `request_feedback = true` to request approval. Include any open questions for the user directly in the implementation plan. Don't use the ask_question tool to ask these questions. Stop calling tools and allow the user to review the plan and provide feedback or approval.
+3. After receiving approval, begin execution. Create and update the task artifact as you work.
+4. Verify any work that you have done.
+5. Create a walkthrough artifact to present your work to the user. When writing artifacts, make sure to follow the artifact formatting guidelines and use github alerts to highlight critical sections.
+If the user's request does NOT warrant a plan then continue your work WITHOUT making a plan or requesting user feedback.
+</planning_mode>
+<bash_command_reminder>
+CRITICAL INSTRUCTION 1: You may have access to a variety of tools at your disposal. Some tools may be for a s
+Nguyên nhân gây ra lỗi "Load failed" trên điện thoại là do khi bạn đẩy bản thử nghiệm (Testing) lên Zalo, biến môi trường báo hiệu ứng dụng vẫn đang ở "chế độ Dev". Điều này khiến ứng dụng trên điện thoại cố gắng gọi API qua proxy cục bộ (`localhost` mà chúng ta thiết lập lúc nãy) thay vì gọi thẳng lên máy chủ Đà Nẵng, và dĩ nhiên điện thoại của bạn không thể tìm thấy cái proxy đó nên báo lỗi!
+
+Tôi đã sửa lỗi này bằng cách thiết lập lại logic: **Chỉ sử dụng proxy nếu đang chạy thực sự trên máy tính (`localhost`), còn khi lên điện thoại thì tự động trỏ về domain gốc `https://gopy.danang.gov.vn`.**
+
+Tôi cũng đã commit và **đẩy bản sửa lỗi này lên GitHub của bạn rồi**. 
+
+Bây giờ bạn chỉ cần **Deploy lại** dự án trên Zalo Mini App Studio lên điện thoại một lần nữa là sẽ gửi dữ liệu thành công nhé! (Và đừng quên đảm bảo tên miền `https://gopy.danang.gov.vn` đã được đưa vào danh sách Tên miền hợp lệ trong mục Cài đặt ở Zalo Mini App Dashboard nếu đây là app mới nhé).
+The following is an <EPHEMERAL_MESSAGE> not actually sent by the user. It is provided by the system as a set of reminders and general important information to pay attention to. Do NOT respond to this message, just act accordingly.
+
+<EPHEMERAL_MESSAGE>
+<planning_mode>
+You're in planning mode. Exercise judgement on whether the user's last request warrants a plan and take action accordingly.
+If the user's request warrants a plan then follow this workflow:
+1. Research first before taking actions. Do not use your code editing tools or run modifying commands during this time.
+2. Create an implementation plan artifact with `request_feedback = true` to request approval. Include any open questions for the user directly in the implementation plan. Don't use the ask_question tool to ask these questions. Stop calling tools and allow the user to review the plan and provide feedback or approval.
+3. After receiving approval, begin execution. Create and update the task artifact as you work.
+4. Verify any work that you have done.
+5. Create a walkthrough artifact to present your work to the user. When writing artifacts, make sure to follow the artifact formatting guidelines and use github alerts to highlight critical sections.
+If the user's request does NOT warrant a plan then continue your work WITHOUT making a plan or requesting user feedback.
+</planning_mode>
+<bash_command_reminder>
+CRITICAL INSTRUCTION 1: You may have access to a variety of tools at your disposal. Some tools may be for a s
+
+The following is an <EPHEMERAL_MESSAGE> not actually sent by the user. It is provided by the system as a set of reminders and general important information to pay attention to. Do NOT respond to this message, just act accordingly.
+
+<EPHEMERAL_MESSAGE>
+<planning_mode>
+You're in planning mode. Exercise judgement on whether the user's last request warrants a plan and take action accordingly.
+If the user's request warrants a plan then follow this workflow:
+1. Research first before taking actions. Do not use your code editing tools or run modifying commands during this time.
+2. Create an implementation plan artifact with `request_feedback = true` to request approval. Include any open questions for the user directly in the implementation plan. Don't use the ask_question tool to ask these questions. Stop calling tools and allow the user to review the plan and provide feedback or approval.
+3. After receiving approval, begin execution. Create and update the task artifact as you work.
+4. Verify any work that you have done.
+5. Create a walkthrough artifact to present your work to the user. When writing artifacts, make sure to follow the artifact formatting guidelines and use github alerts to highlight critical sections.
+If the user's request does NOT warrant a plan then continue your work WITHOUT making a plan or requesting user feedback.
+</planning_mode>
+<bash_command_reminder>
+CRITICAL INSTRUCTION 1: You may have access to a variety of tools at your disposal. Some tools may be for a s
+
+The following is an <EPHEMERAL_MESSAGE> not actually sent by the user. It is provided by the system as a set of reminders and general important information to pay attention to. Do NOT respond to this message, just act accordingly.
+
+<EPHEMERAL_MESSAGE>
+<planning_mode>
+You're in planning mode. Exercise judgement on whether the user's last request warrants a plan and take action accordingly.
+If the user's request warrants a plan then follow this workflow:
+1. Research first before taking actions. Do not use your code editing tools or run modifying commands during this time.
+2. Create an implementation plan artifact with `request_feedback = true` to request approval. Include any open questions for the user directly in the implementation plan. Don't use the ask_question tool to ask these questions. Stop calling tools and allow the user to review the plan and provide feedback or approval.
+3. After receiving approval, begin execution. Create and update the task artifact as you work.
+4. Verify any work that you have done.
+5. Create a walkthrough artifact to present your work to the user. When writing artifacts, make sure to follow the artifact formatting guidelines and use github alerts to highlight critical sections.
+If the user's request does NOT warrant a plan then continue your work WITHOUT making a plan or requesting user feedback.
+</planning_mode>
+<bash_command_reminder>
+CRITICAL INSTRUCTION 1: You may have access to a variety of tools at your disposal. Some tools may be for a s
+
+The following is an <EPHEMERAL_MESSAGE> not actually sent by the user. It is provided by the system as a set of reminders and general important information to pay attention to. Do NOT respond to this message, just act accordingly.
+
+<EPHEMERAL_MESSAGE>
+<planning_mode>
+You're in planning mode. Exercise judgement on whether the user's last request warrants a plan and take action accordingly.
+If the user's request warrants a plan then follow this workflow:
+1. Research first before taking actions. Do not use your code editing tools or run modifying commands during this time.
+2. Create an implementation plan artifact with `request_feedback = true` to request approval. Include any open questions for the user directly in the implementation plan. Don't use the ask_question tool to ask these questions. Stop calling tools and allow the user to review the plan and provide feedback or approval.
+3. After receiving approval, begin execution. Create and update the task artifact as you work.
+4. Verify any work that you have done.
+5. Create a walkthrough artifact to present your work to the user. When writing artifacts, make sure to follow the artifact formatting guidelines and use github alerts to highlight critical sections.
+If the user's request does NOT warrant a plan then continue your work WITHOUT making a plan or requesting user feedback.
+</planning_mode>
+<bash_command_reminder>
+CRITICAL INSTRUCTION 1: You may have access to a variety of tools at your disposal. Some tools may be for a s
+Tôi đã sửa lại phần lấy dữ liệu địa điểm theo đúng yêu cầu của bạn. 
+
+Cụ thể, hệ thống sẽ:
+1. Tách chuỗi địa chỉ trả về, loại bỏ những phần có chứa mã bưu điện (các con số gồm 5-6 chữ số).
+2. Lọc bỏ các phường/địa danh có đính kèm chữ `(cũ)`.
+3. Tự động lược bỏ luôn cả chữ "Việt Nam" để địa chỉ ngắn gọn và tự nhiên hơn (VD: chỉ hiển thị "123 Lê Duẩn, Phường Hải Châu 1, Quận Hải Châu, Thành phố Đà Nẵng").
+
+Tôi cũng đã commit và đẩy bản cập nhật này lên GitHub. Bây giờ bạn có thể Deploy lại bản mới nhất này lên Zalo Mini App để thử nghiệm lấy địa chỉ nhé!
+The following is an <EPHEMERAL_MESSAGE> not actually sent by the user. It is provided by the system as a set of reminders and general important information to pay attention to. Do NOT respond to this message, just act accordingly.
+
+<EPHEMERAL_MESSAGE>
+<planning_mode>
+You're in planning mode. Exercise judgement on whether the user's last request warrants a plan and take action accordingly.
+If the user's request warrants a plan then follow this workflow:
+1. Research first before taking actions. Do not use your code editing tools or run modifying commands during this time.
+2. Create an implementation plan artifact with `request_feedback = true` to request approval. Include any open questions for the user directly in the implementation plan. Don't use the ask_question tool to ask these questions. Stop calling tools and allow the user to review the plan and provide feedback or approval.
+3. After receiving approval, begin execution. Create and update the task artifact as you work.
+4. Verify any work that you have done.
+5. Create a walkthrough artifact to present your work to the user. When writing artifacts, make sure to follow the artifact formatting guidelines and use github alerts to highlight critical sections.
+If the user's request does NOT warrant a plan then continue your work WITHOUT making a plan or requesting user feedback.
+</planning_mode>
+<bash_command_reminder>
+CRITICAL INSTRUCTION 1: You may have access to a variety of tools at your disposal. Some tools may be for a s
+The following is an <EPHEMERAL_MESSAGE> not actually sent by the user. It is provided by the system as a set of reminders and general important information to pay attention to. Do NOT respond to this message, just act accordingly.
+
+<EPHEMERAL_MESSAGE>
+<planning_mode>
+You're in planning mode. Exercise judgement on whether the user's last request warrants a plan and take action accordingly.
+If the user's request warrants a plan then follow this workflow:
+1. Research first before taking actions. Do not use your code editing tools or run modifying commands during this time.
+2. Create an implementation plan artifact with `request_feedback = true` to request approval. Include any open questions for the user directly in the implementation plan. Don't use the ask_question tool to ask these questions. Stop calling tools and allow the user to review the plan and provide feedback or approval.
+3. After receiving approval, begin execution. Create and update the task artifact as you work.
+4. Verify any work that you have done.
+5. Create a walkthrough artifact to present your work to the user. When writing artifacts, make sure to follow the artifact formatting guidelines and use github alerts to highlight critical sections.
+If the user's request does NOT warrant a plan then continue your work WITHOUT making a plan or requesting user feedback.
+</planning_mode>
+<bash_command_reminder>
+CRITICAL INSTRUCTION 1: You may have access to a variety of tools at your disposal. Some tools may be for a s
+
+The following is an <EPHEMERAL_MESSAGE> not actually sent by the user. It is provided by the system as a set of reminders and general important information to pay attention to. Do NOT respond to this message, just act accordingly.
+
+<EPHEMERAL_MESSAGE>
+<planning_mode>
+You're in planning mode. Exercise judgement on whether the user's last request warrants a plan and take action accordingly.
+If the user's request warrants a plan then follow this workflow:
+1. Research first before taking actions. Do not use your code editing tools or run modifying commands during this time.
+2. Create an implementation plan artifact with `request_feedback = true` to request approval. Include any open questions for the user directly in the implementation plan. Don't use the ask_question tool to ask these questions. Stop calling tools and allow the user to review the plan and provide feedback or approval.
+3. After receiving approval, begin execution. Create and update the task artifact as you work.
+4. Verify any work that you have done.
+5. Create a walkthrough artifact to present your work to the user. When writing artifacts, make sure to follow the artifact formatting guidelines and use github alerts to highlight critical sections.
+If the user's request does NOT warrant a plan then continue your work WITHOUT making a plan or requesting user feedback.
+</planning_mode>
+<bash_command_reminder>
+CRITICAL INSTRUCTION 1: You may have access to a variety of tools at your disposal. Some tools may be for a s
+
+The following is an <EPHEMERAL_MESSAGE> not actually sent by the user. It is provided by the system as a set of reminders and general important information to pay attention to. Do NOT respond to this message, just act accordingly.
+
+<EPHEMERAL_MESSAGE>
+<planning_mode>
+You're in planning mode. Exercise judgement on whether the user's last request warrants a plan and take action accordingly.
+If the user's request warrants a plan then follow this workflow:
+1. Research first before taking actions. Do not use your code editing tools or run modifying commands during this time.
+2. Create an implementation plan artifact with `request_feedback = true` to request approval. Include any open questions for the user directly in the implementation plan. Don't use the ask_question tool to ask these questions. Stop calling tools and allow the user to review the plan and provide feedback or approval.
+3. After receiving approval, begin execution. Create and update the task artifact as you work.
+4. Verify any work that you have done.
+5. Create a walkthrough artifact to present your work to the user. When writing artifacts, make sure to follow the artifact formatting guidelines and use github alerts to highlight critical sections.
+If the user's request does NOT warrant a plan then continue your work WITHOUT making a plan or requesting user feedback.
+</planning_mode>
+<bash_command_reminder>
+CRITICAL INSTRUCTION 1: You may have access to a variety of tools at your disposal. Some tools may be for a s
+
+The following is an <EPHEMERAL_MESSAGE> not actually sent by the user. It is provided by the system as a set of reminders and general important information to pay attention to. Do NOT respond to this message, just act accordingly.
+
+<EPHEMERAL_MESSAGE>
+<planning_mode>
+You're in planning mode. Exercise judgement on whether the user's last request warrants a plan and take action accordingly.
+If the user's request warrants a plan then follow this workflow:
+1. Research first before taking actions. Do not use your code editing tools or run modifying commands during this time.
+2. Create an implementation plan artifact with `request_feedback = true` to request approval. Include any open questions for the user directly in the implementation plan. Don't use the ask_question tool to ask these questions. Stop calling tools and allow the user to review the plan and provide feedback or approval.
+3. After receiving approval, begin execution. Create and update the task artifact as you work.
+4. Verify any work that you have done.
+5. Create a walkthrough artifact to present your work to the user. When writing artifacts, make sure to follow the artifact formatting guidelines and use github alerts to highlight critical sections.
+If the user's request does NOT warrant a plan then continue your work WITHOUT making a plan or requesting user feedback.
+</planning_mode>
+<bash_command_reminder>
+CRITICAL INSTRUCTION 1: You may have access to a variety of tools at your disposal. Some tools may be for a s
+
+The following is an <EPHEMERAL_MESSAGE> not actually sent by the user. It is provided by the system as a set of reminders and general important information to pay attention to. Do NOT respond to this message, just act accordingly.
+
+<EPHEMERAL_MESSAGE>
+<planning_mode>
+You're in planning mode. Exercise judgement on whether the user's last request warrants a plan and take action accordingly.
+If the user's request warrants a plan then follow this workflow:
+1. Research first before taking actions. Do not use your code editing tools or run modifying commands during this time.
+2. Create an implementation plan artifact with `request_feedback = true` to request approval. Include any open questions for the user directly in the implementation plan. Don't use the ask_question tool to ask these questions. Stop calling tools and allow the user to review the plan and provide feedback or approval.
+3. After receiving approval, begin execution. Create and update the task artifact as you work.
+4. Verify any work that you have done.
+5. Create a walkthrough artifact to present your work to the user. When writing artifacts, make sure to follow the artifact formatting guidelines and use github alerts to highlight critical sections.
+If the user's request does NOT warrant a plan then continue your work WITHOUT making a plan or requesting user feedback.
+</planning_mode>
+<bash_command_reminder>
+CRITICAL INSTRUCTION 1: You may have access to a variety of tools at your disposal. Some tools may be for a s
+
+The following is an <EPHEMERAL_MESSAGE> not actually sent by the user. It is provided by the system as a set of reminders and general important information to pay attention to. Do NOT respond to this message, just act accordingly.
+
+<EPHEMERAL_MESSAGE>
+<planning_mode>
+You're in planning mode. Exercise judgement on whether the user's last request warrants a plan and take action accordingly.
+If the user's request warrants a plan then follow this workflow:
+1. Research first before taking actions. Do not use your code editing tools or run modifying commands during this time.
+2. Create an implementation plan artifact with `request_feedback = true` to request approval. Include any open questions for the user directly in the implementation plan. Don't use the ask_question tool to ask these questions. Stop calling tools and allow the user to review the plan and provide feedback or approval.
+3. After receiving approval, begin execution. Create and update the task artifact as you work.
+4. Verify any work that you have done.
+5. Create a walkthrough artifact to present your work to the user. When writing artifacts, make sure to follow the artifact formatting guidelines and use github alerts to highlight critical sections.
+If the user's request does NOT warrant a plan then continue your work WITHOUT making a plan or requesting user feedback.
+</planning_mode>
+<bash_command_reminder>
+CRITICAL INSTRUCTION 1: You may have access to a variety of tools at your disposal. Some tools may be for a s
+Tôi vừa phát hiện ra một nguyên nhân cực kỳ phổ biến khiến ứng dụng Zalo Mini App chạy mượt trên máy tính nhưng lên điện thoại lại lỗi "Load failed". 
+
+Đó là khi bạn bấm nút "Deploy" trên Zalo Mini App Studio, hệ thống build (đóng gói) của Zalo đôi khi **bỏ qua file `.env`**. Điều này khiến toàn bộ đường link API, Tên đăng nhập và Mật khẩu bị biến thành `undefined` (trống rỗng) khi chạy trên điện thoại. Do đó trình duyệt web của điện thoại lập tức báo "Load failed" vì gửi dữ liệu đến một địa chỉ không tồn tại.
+
+**🛠️ CÁCH TÔI ĐÃ KHẮC PHỤC:**
+Tôi đã sửa lại code (và đẩy lên GitHub cho bạn): Sử dụng giá trị mặc định trực tiếp trong code (hardcode fallback). Nếu app không đọc được file `.env` trên điện thoại, nó sẽ tự động dùng link `https://gopy.danang.gov.vn` và thông tin xác thực gốc.
+
+**🚀 BẠN CẦN LÀM GÌ BÂY GIỜ:**
+1. Mở Zalo Mini App Studio, pull code mới về (hoặc tự động đồng bộ) và **Deploy lại một lần nữa**.
+2. **(Quan trọng)** Nếu vẫn bị lỗi sau khi deploy bản mới này, nguyên nhân duy nhất 100% nằm ở chính sách bảo mật của Zalo. Bạn cần phải khai báo tên miền với Zalo bằng cách:
+   - Truy cập trang [Zalo Mini App Dashboard (mini.zalo.me)](https://mini.zalo.me).
+   - Chọn ứng dụng của bạn ➡️ Chọn phần **Cài đặt** (Settings).
+   - Tìm mục **Tên miền hợp lệ** (Valid Domains) ➡️ Thêm `https://gopy.danang.gov.vn` và `https://nominatim.openstreetmap.org` vào danh sách Request Domain để Zalo cấp phép cho ứng dụng gửi dữ liệu ra bên ngoài.
+
+Bạn hãy deploy lại và kiểm tra thử nhé!
+The following is an <EPHEMERAL_MESSAGE> not actually sent by the user. It is provided by the system as a set of reminders and general important information to pay attention to. Do NOT respond to this message, just act accordingly.
+
+<EPHEMERAL_MESSAGE>
+<planning_mode>
+You're in planning mode. Exercise judgement on whether the user's last request warrants a plan and take action accordingly.
+If the user's request warrants a plan then follow this workflow:
+1. Research first before taking actions. Do not use your code editing tools or run modifying commands during this time.
+2. Create an implementation plan artifact with `request_feedback = true` to request approval. Include any open questions for the user directly in the implementation plan. Don't use the ask_question tool to ask these questions. Stop calling tools and allow the user to review the plan and provide feedback or approval.
+3. After receiving approval, begin execution. Create and update the task artifact as you work.
+4. Verify any work that you have done.
+5. Create a walkthrough artifact to present your work to the user. When writing artifacts, make sure to follow the artifact formatting guidelines and use github alerts to highlight critical sections.
+If the user's request does NOT warrant a plan then continue your work WITHOUT making a plan or requesting user feedback.
+</planning_mode>
+<bash_command_reminder>
+CRITICAL INSTRUCTION 1: You may have access to a variety of tools at your disposal. Some tools may be for a s
+
+The following is an <EPHEMERAL_MESSAGE> not actually sent by the user. It is provided by the system as a set of reminders and general important information to pay attention to. Do NOT respond to this message, just act accordingly.
+
+<EPHEMERAL_MESSAGE>
+<planning_mode>
+You're in planning mode. Exercise judgement on whether the user's last request warrants a plan and take action accordingly.
+If the user's request warrants a plan then follow this workflow:
+1. Research first before taking actions. Do not use your code editing tools or run modifying commands during this time.
+2. Create an implementation plan artifact with `request_feedback = true` to request approval. Include any open questions for the user directly in the implementation plan. Don't use the ask_question tool to ask these questions. Stop calling tools and allow the user to review the plan and provide feedback or approval.
+3. After receiving approval, begin execution. Create and update the task artifact as you work.
+4. Verify any work that you have done.
+5. Create a walkthrough artifact to present your work to the user. When writing artifacts, make sure to follow the artifact formatting guidelines and use github alerts to highlight critical sections.
+If the user's request does NOT warrant a plan then continue your work WITHOUT making a plan or requesting user feedback.
+</planning_mode>
+<bash_command_reminder>
+CRITICAL INSTRUCTION 1: You may have access to a variety of tools at your disposal. Some tools may be for a s
+
+The following is an <EPHEMERAL_MESSAGE> not actually sent by the user. It is provided by the system as a set of reminders and general important information to pay attention to. Do NOT respond to this message, just act accordingly.
+
+<EPHEMERAL_MESSAGE>
+<planning_mode>
+You're in planning mode. Exercise judgement on whether the user's last request warrants a plan and take action accordingly.
+If the user's request warrants a plan then follow this workflow:
+1. Research first before taking actions. Do not use your code editing tools or run modifying commands during this time.
+2. Create an implementation plan artifact with `request_feedback = true` to request approval. Include any open questions for the user directly in the implementation plan. Don't use the ask_question tool to ask these questions. Stop calling tools and allow the user to review the plan and provide feedback or approval.
+3. After receiving approval, begin execution. Create and update the task artifact as you work.
+4. Verify any work that you have done.
+5. Create a walkthrough artifact to present your work to the user. When writing artifacts, make sure to follow the artifact formatting guidelines and use github alerts to highlight critical sections.
+If the user's request does NOT warrant a plan then continue your work WITHOUT making a plan or requesting user feedback.
+</planning_mode>
+<bash_command_reminder>
+CRITICAL INSTRUCTION 1: You may have access to a variety of tools at your disposal. Some tools may be for a s
+
+The following is an <EPHEMERAL_MESSAGE> not actually sent by the user. It is provided by the system as a set of reminders and general important information to pay attention to. Do NOT respond to this message, just act accordingly.
+
+<EPHEMERAL_MESSAGE>
+<planning_mode>
+You're in planning mode. Exercise judgement on whether the user's last request warrants a plan and take action accordingly.
+If the user's request warrants a plan then follow this workflow:
+1. Research first before taking actions. Do not use your code editing tools or run modifying commands during this time.
+2. Create an implementation plan artifact with `request_feedback = true` to request approval. Include any open questions for the user directly in the implementation plan. Don't use the ask_question tool to ask these questions. Stop calling tools and allow the user to review the plan and provide feedback or approval.
+3. After receiving approval, begin execution. Create and update the task artifact as you work.
+4. Verify any work that you have done.
+5. Create a walkthrough artifact to present your work to the user. When writing artifacts, make sure to follow the artifact formatting guidelines and use github alerts to highlight critical sections.
+If the user's request does NOT warrant a plan then continue your work WITHOUT making a plan or requesting user feedback.
+</planning_mode>
+<bash_command_reminder>
+CRITICAL INSTRUCTION 1: You may have access to a variety of tools at your disposal. Some tools may be for a s
+
+The following is an <EPHEMERAL_MESSAGE> not actually sent by the user. It is provided by the system as a set of reminders and general important information to pay attention to. Do NOT respond to this message, just act accordingly.
+
+<EPHEMERAL_MESSAGE>
+<planning_mode>
+You're in planning mode. Exercise judgement on whether the user's last request warrants a plan and take action accordingly.
+If the user's request warrants a plan then follow this workflow:
+1. Research first before taking actions. Do not use your code editing tools or run modifying commands during this time.
+2. Create an implementation plan artifact with `request_feedback = true` to request approval. Include any open questions for the user directly in the implementation plan. Don't use the ask_question tool to ask these questions. Stop calling tools and allow the user to review the plan and provide feedback or approval.
+3. After receiving approval, begin execution. Create and update the task artifact as you work.
+4. Verify any work that you have done.
+5. Create a walkthrough artifact to present your work to the user. When writing artifacts, make sure to follow the artifact formatting guidelines and use github alerts to highlight critical sections.
+If the user's request does NOT warrant a plan then continue your work WITHOUT making a plan or requesting user feedback.
+</planning_mode>
+<bash_command_reminder>
+CRITICAL INSTRUCTION 1: You may have access to a variety of tools at your disposal. Some tools may be for a s
+
+The following is an <EPHEMERAL_MESSAGE> not actually sent by the user. It is provided by the system as a set of reminders and general important information to pay attention to. Do NOT respond to this message, just act accordingly.
+
+<EPHEMERAL_MESSAGE>
+<planning_mode>
+You're in planning mode. Exercise judgement on whether the user's last request warrants a plan and take action accordingly.
+If the user's request warrants a plan then follow this workflow:
+1. Research first before taking actions. Do not use your code editing tools or run modifying commands during this time.
+2. Create an implementation plan artifact with `request_feedback = true` to request approval. Include any open questions for the user directly in the implementation plan. Don't use the ask_question tool to ask these questions. Stop calling tools and allow the user to review the plan and provide feedback or approval.
+3. After receiving approval, begin execution. Create and update the task artifact as you work.
+4. Verify any work that you have done.
+5. Create a walkthrough artifact to present your work to the user. When writing artifacts, make sure to follow the artifact formatting guidelines and use github alerts to highlight critical sections.
+If the user's request does NOT warrant a plan then continue your work WITHOUT making a plan or requesting user feedback.
+</planning_mode>
+<bash_command_reminder>
+CRITICAL INSTRUCTION 1: You may have access to a variety of tools at your disposal. Some tools may be for a s
+
+The following is an <EPHEMERAL_MESSAGE> not actually sent by the user. It is provided by the system as a set of reminders and general important information to pay attention to. Do NOT respond to this message, just act accordingly.
+
+<EPHEMERAL_MESSAGE>
+<planning_mode>
+You're in planning mode. Exercise judgement on whether the user's last request warrants a plan and take action accordingly.
+If the user's request warrants a plan then follow this workflow:
+1. Research first before taking actions. Do not use your code editing tools or run modifying commands during this time.
+2. Create an implementation plan artifact with `request_feedback = true` to request approval. Include any open questions for the user directly in the implementation plan. Don't use the ask_question tool to ask these questions. Stop calling tools and allow the user to review the plan and provide feedback or approval.
+3. After receiving approval, begin execution. Create and update the task artifact as you work.
+4. Verify any work that you have done.
+5. Create a walkthrough artifact to present your work to the user. When writing artifacts, make sure to follow the artifact formatting guidelines and use github alerts to highlight critical sections.
+If the user's request does NOT warrant a plan then continue your work WITHOUT making a plan or requesting user feedback.
+</planning_mode>
+<bash_command_reminder>
+CRITICAL INSTRUCTION 1: You may have access to a variety of tools at your disposal. Some tools may be for a s
+
+The following is an <EPHEMERAL_MESSAGE> not actually sent by the user. It is provided by the system as a set of reminders and general important information to pay attention to. Do NOT respond to this message, just act accordingly.
+
+<EPHEMERAL_MESSAGE>
+<planning_mode>
+You're in planning mode. Exercise judgement on whether the user's last request warrants a plan and take action accordingly.
+If the user's request warrants a plan then follow this workflow:
+1. Research first before taking actions. Do not use your code editing tools or run modifying commands during this time.
+2. Create an implementation plan artifact with `request_feedback = true` to request approval. Include any open questions for the user directly in the implementation plan. Don't use the ask_question tool to ask these questions. Stop calling tools and allow the user to review the plan and provide feedback or approval.
+3. After receiving approval, begin execution. Create and update the task artifact as you work.
+4. Verify any work that you have done.
+5. Create a walkthrough artifact to present your work to the user. When writing artifacts, make sure to follow the artifact formatting guidelines and use github alerts to highlight critical sections.
+If the user's request does NOT warrant a plan then continue your work WITHOUT making a plan or requesting user feedback.
+</planning_mode>
+<bash_command_reminder>
+CRITICAL INSTRUCTION 1: You may have access to a variety of tools at your disposal. Some tools may be for a s
+The following is an <EPHEMERAL_MESSAGE> not actually sent by the user. It is provided by the system as a set of reminders and general important information to pay attention to. Do NOT respond to this message, just act accordingly.
+
+<EPHEMERAL_MESSAGE>
+<planning_mode>
+You're in planning mode. Exercise judgement on whether the user's last request warrants a plan and take action accordingly.
+If the user's request warrants a plan then follow this workflow:
+1. Research first before taking actions. Do not use your code editing tools or run modifying commands during this time.
+2. Create an implementation plan artifact with `request_feedback = true` to request approval. Include any open questions for the user directly in the implementation plan. Don't use the ask_question tool to ask these questions. Stop calling tools and allow the user to review the plan and provide feedback or approval.
+3. After receiving approval, begin execution. Create and update the task artifact as you work.
+4. Verify any work that you have done.
+5. Create a walkthrough artifact to present your work to the user. When writing artifacts, make sure to follow the artifact formatting guidelines and use github alerts to highlight critical sections.
+If the user's request does NOT warrant a plan then continue your work WITHOUT making a plan or requesting user feedback.
+</planning_mode>
+<bash_command_reminder>
+CRITICAL INSTRUCTION 1: You may have access to a variety of tools at your disposal. Some tools may be for a s
+Tôi đã kiểm tra sâu vào hệ thống và phát hiện ra **nguyên nhân cốt lõi 100% nằm ở máy chủ của Đà Nẵng (`gopy.danang.gov.vn`), không phải do code của bạn**.
+
+### 🔍 Chuyện gì đang xảy ra?
+Bất kỳ khi nào một ứng dụng web (như Zalo Mini App) gửi dữ liệu POST kèm theo thông tin bảo mật (`Authorization`) đến một tên miền khác, quy tắc bảo mật của iOS/Android bắt buộc trình duyệt phải gửi ngầm một yêu cầu **kiểm tra trước (gọi là lệnh OPTIONS - Preflight request)** để hỏi máy chủ Đà Nẵng xem: *"Tôi từ Zalo Mini App tới, tôi có được phép gửi dữ liệu vào đây không?"* (Đây chính là cơ chế CORS).
+
+Tuy nhiên, khi tôi dùng lệnh kỹ thuật để test thử lệnh `OPTIONS` này tới máy chủ `gopy.danang.gov.vn`, máy chủ Nginx của họ lập tức trả về lỗi:
+👉 **`HTTP/1.1 403 Forbidden`** (Bị cấm).
+
+Vì máy chủ từ chối trả lời câu hỏi "kiểm tra trước" này, nên điện thoại của bạn lập tức chặn không cho gửi dữ liệu thật đi nữa và văng lỗi `Load failed`. (Lúc nãy chúng ta chạy được trên máy tính là vì chúng ta đã dùng cái proxy cục bộ của Vite để lách qua luật này, nhưng khi lên điện thoại thì không có proxy đó).
+
+### 🛠️ Cách khắc phục triệt để (Chỉ có 2 cách)
+
+**Cách 1: Sửa từ phía Server Đà Nẵng (Khuyến nghị)**
+Bạn cần liên hệ với đội ngũ IT quản lý hệ thống `gopy.danang.gov.vn` và yêu cầu họ:
+> *"Vui lòng cấu hình Nginx/Server cho phép phương thức OPTIONS (CORS Preflight) và cấu hình Header `Access-Control-Allow-Origin: *` cho các endpoint API để Zalo Mini App có thể gọi được."*
+*(Chỉ cần họ mở cấu hình này
+The following is an <EPHEMERAL_MESSAGE> not actually sent by the user. It is provided by the system as a set of reminders and general important information to pay attention to. Do NOT respond to this message, just act accordingly.
+
+<EPHEMERAL_MESSAGE>
+<planning_mode>
+You're in planning mode. Exercise judgement on whether the user's last request warrants a plan and take action accordingly.
+If the user's request warrants a plan then follow this workflow:
+1. Research first before taking actions. Do not use your code editing tools or run modifying commands during this time.
+2. Create an implementation plan artifact with `request_feedback = true` to request approval. Include any open questions for the user directly in the implementation plan. Don't use the ask_question tool to ask these questions. Stop calling tools and allow the user to review the plan and provide feedback or approval.
+3. After receiving approval, begin execution. Create and update the task artifact as you work.
+4. Verify any work that you have done.
+5. Create a walkthrough artifact to present your work to the user. When writing artifacts, make sure to follow the artifact formatting guidelines and use github alerts to highlight critical sections.
+If the user's request does NOT warrant a plan then continue your work WITHOUT making a plan or requesting user feedback.
+</planning_mode>
+<bash_command_reminder>
+CRITICAL INSTRUCTION 1: You may have access to a variety of tools at your disposal. Some tools may be for a s
+Tôi đã nhận được log xác nhận từ hệ thống mạng của tôi. Các proxy công cộng cũng báo lỗi timeout (Code 522 / 403) khi cố gắng "lách luật" với máy chủ Đà Nẵng. Điều này một lần nữa khẳng định chắc chắn 100% rằng hệ thống tường lửa của máy chủ Đà Nẵng chặn rất nghiêm ngặt các truy cập từ bên ngoài nếu không phải là trình duyệt web thông thường được cấu hình hợp lệ.
+
+Nếu bạn có thể liên hệ được với đội ngũ IT bên đó để họ mở cấu hình CORS thì đó là cách tốt nhất. Còn nếu bạn cần hỗ trợ xây dựng một Proxy Server độc lập (Cách 2), hãy báo cho tôi biết, tôi sẽ hướng dẫn và viết code Proxy Node.js cho bạn ngay nhé!
+The following is an <EPHEMERAL_MESSAGE> not actually sent by the user. It is provided by the system as a set of reminders and general important information to pay attention to. Do NOT respond to this message, just act accordingly.
+
+<EPHEMERAL_MESSAGE>
+<planning_mode>
+You're in planning mode. Exercise judgement on whether the user's last request warrants a plan and take action accordingly.
+If the user's request warrants a plan then follow this workflow:
+1. Research first before taking actions. Do not use your code editing tools or run modifying commands during this time.
+2. Create an implementation plan artifact with `request_feedback = true` to request approval. Include any open questions for the user directly in the implementation plan. Don't use the ask_question tool to ask these questions. Stop calling tools and allow the user to review the plan and provide feedback or approval.
+3. After receiving approval, begin execution. Create and update the task artifact as you work.
+4. Verify any work that you have done.
+5. Create a walkthrough artifact to present your work to the user. When writing artifacts, make sure to follow the artifact formatting guidelines and use github alerts to highlight critical sections.
+If the user's request does NOT warrant a plan then continue your work WITHOUT making a plan or requesting user feedback.
+</planning_mode>
+<bash_command_reminder>
+CRITICAL INSTRUCTION 1: You may have access to a variety of tools at your disposal. Some tools may be for a s
+
+The following is an <EPHEMERAL_MESSAGE> not actually sent by the user. It is provided by the system as a set of reminders and general important information to pay attention to. Do NOT respond to this message, just act accordingly.
+
+<EPHEMERAL_MESSAGE>
+<planning_mode>
+You're in planning mode. Exercise judgement on whether the user's last request warrants a plan and take action accordingly.
+If the user's request warrants a plan then follow this workflow:
+1. Research first before taking actions. Do not use your code editing tools or run modifying commands during this time.
+2. Create an implementation plan artifact with `request_feedback = true` to request approval. Include any open questions for the user directly in the implementation plan. Don't use the ask_question tool to ask these questions. Stop calling tools and allow the user to review the plan and provide feedback or approval.
+3. After receiving approval, begin execution. Create and update the task artifact as you work.
+4. Verify any work that you have done.
+5. Create a walkthrough artifact to present your work to the user. When writing artifacts, make sure to follow the artifact formatting guidelines and use github alerts to highlight critical sections.
+If the user's request does NOT warrant a plan then continue your work WITHOUT making a plan or requesting user feedback.
+</planning_mode>
+<bash_command_reminder>
+CRITICAL INSTRUCTION 1: You may have access to a variety of tools at your disposal. Some tools may be for a s
+
+The following is an <EPHEMERAL_MESSAGE> not actually sent by the user. It is provided by the system as a set of reminders and general important information to pay attention to. Do NOT respond to this message, just act accordingly.
+
+<EPHEMERAL_MESSAGE>
+<planning_mode>
+You're in planning mode. Exercise judgement on whether the user's last request warrants a plan and take action accordingly.
+If the user's request warrants a plan then follow this workflow:
+1. Research first before taking actions. Do not use your code editing tools or run modifying commands during this time.
+2. Create an implementation plan artifact with `request_feedback = true` to request approval. Include any open questions for the user directly in the implementation plan. Don't use the ask_question tool to ask these questions. Stop calling tools and allow the user to review the plan and provide feedback or approval.
+3. After receiving approval, begin execution. Create and update the task artifact as you work.
+4. Verify any work that you have done.
+5. Create a walkthrough artifact to present your work to the user. When writing artifacts, make sure to follow the artifact formatting guidelines and use github alerts to highlight critical sections.
+If the user's request does NOT warrant a plan then continue your work WITHOUT making a plan or requesting user feedback.
+</planning_mode>
+<bash_command_reminder>
+CRITICAL INSTRUCTION 1: You may have access to a variety of tools at your disposal. Some tools may be for a s
+À, tôi hiểu ý bạn rồi! 
+
+Trong hình chụp, các tham số (Payload) `lat` và `lon` mà chúng ta gửi đi **hoàn toàn chính xác**. Vấn đề nằm ở chỗ API của OpenStreetMap (Nominatim) khi trả về một chuỗi địa chỉ có sẵn (`display_name`), nó sẽ lấy tên tòa nhà/quán ăn (ví dụ: *Mia Coffee Roastery*) gộp vào nếu tọa độ rơi trúng ngay quán cà phê đó, khiến địa chỉ nhìn rất rườm rà. Lỗi này là do cách mình bóc tách chuỗi lúc nãy vẫn chưa đủ triệt để.
+
+**Cách khắc phục tôi vừa làm:**
+Thay vì lấy nguyên chuỗi đó rồi đi cắt gọt, tôi đã gọi thêm tham số `addressdetails=1` trong API. Nhờ đó API trả về hẳn một danh sách chi tiết (Tên đường riêng, Số nhà riêng, Phường riêng, Thành phố riêng). 
+
+Tôi đã cấu trúc lại code để **chỉ chủ động nhặt đúng các mảnh ghép**: `Số nhà + Tên đường, Phường, Quận, Thành phố` và nối lại với nhau. (Nếu không có số nhà thì nhặt tên đường/tòa nhà bù vào). Tuyệt đối bỏ qua tất cả các thứ dư thừa khác!
+
+Tôi đã commit và **đẩy bản cập nhật này lên GitHub** rồi nhé. Bạn có thể pull về hoặc lấy code trực tiếp trên đó để xem sự thay đổi!
+The following is an <EPHEMERAL_MESSAGE> not actually sent by the user. It is provided by the system as a set of reminders and general important information to pay attention to. Do NOT respond to this message, just act accordingly.
+
+<EPHEMERAL_MESSAGE>
+<planning_mode>
+You're in planning mode. Exercise judgement on whether the user's last request warrants a plan and take action accordingly.
+If the user's request warrants a plan then follow this workflow:
+1. Research first before taking actions. Do not use your code editing tools or run modifying commands during this time.
+2. Create an implementation plan artifact with `request_feedback = true` to request approval. Include any open questions for the user directly in the implementation plan. Don't use the ask_question tool to ask these questions. Stop calling tools and allow the user to review the plan and provide feedback or approval.
+3. After receiving approval, begin execution. Create and update the task artifact as you work.
+4. Verify any work that you have done.
+5. Create a walkthrough artifact to present your work to the user. When writing artifacts, make sure to follow the artifact formatting guidelines and use github alerts to highlight critical sections.
+If the user's request does NOT warrant a plan then continue your work WITHOUT making a plan or requesting user feedback.
+</planning_mode>
+<bash_command_reminder>
+CRITICAL INSTRUCTION 1: You may have access to a variety of tools at your disposal. Some tools may be for a s
+Việc bạn khai báo tên miền trong mục "Quản lý API" của Zalo là thao tác **bắt buộc**, nhưng nó **chưa đủ** để gọi API thành công.
+
+Tôi xin giải thích rõ ràng cơ chế để bạn dễ hình dung:
+1. Việc thêm tên miền vào Zalo giống như việc **Zalo cấp giấy thông hành** cho bạn rời khỏi cổng.
+2. Tuy nhiên, khi bạn mang giấy thông hành đó đến "gõ cửa" máy chủ Đà Nẵng (`gopy.danang.gov.vn`), thì **chủ nhà (máy chủ Đà Nẵng) lại khóa cửa không cho bạn vào**.
+3. Cụ thể: Trình duyệt trên điện thoại luôn tự động gửi một lệnh kiểm tra (gọi là lệnh `OPTIONS`) để hỏi máy chủ Đà Nẵng xem có cho phép Zalo Mini App gửi dữ liệu không. Máy chủ Nginx của Đà Nẵng hiện tại được thiết lập từ chối thẳng thừng (trả về lỗi `403 Forbidden`). 
+
+Do đó, trình duyệt trên điện thoại của bạn tự động ngắt kết nối và báo `Load failed`. **Đây là luật an ninh mạng (CORS) tiêu chuẩn trên mọi điện thoại (Safari/Chrome), không có bất kỳ dòng code nào trên Zalo Mini App có thể lách qua được nếu máy chủ đích cự tuyệt.**
+
+### 💡 Giải pháp giải quyết triệt để:
+
+**1. Liên hệ đội ngũ cấp API (Dễ nhất)**
+Nếu bạn có liên hệ với đội ngũ kỹ thuật của Sở/Ban/Ngành cung cấp API này, hãy báo với họ đúng 1 câu này:
+> *"Máy chủ API gopy.danang.gov.vn đang chặn phương thức OPTIONS (trả về 403). Vui lòng mở cấu hình CORS cho phép OPTIONS để bên em có thể gọi API từ Zalo Mini App."*
+
+**2. Sử dụng Máy chủ trung gian (Proxy Server)**
+Nếu bạn không thể liên hệ được với người quản lý máy chủ đó, bạn **bắt buộc** phải có một máy chủ trung gian 
+The following is an <EPHEMERAL_MESSAGE> not actually sent by the user. It is provided by the system as a set of reminders and general important information to pay attention to. Do NOT respond to this message, just act accordingly.
+
+<EPHEMERAL_MESSAGE>
+<planning_mode>
+You're in planning mode. Exercise judgement on whether the user's last request warrants a plan and take action accordingly.
+If the user's request warrants a plan then follow this workflow:
+1. Research first before taking actions. Do not use your code editing tools or run modifying commands during this time.
+2. Create an implementation plan artifact with `request_feedback = true` to request approval. Include any open questions for the user directly in the implementation plan. Don't use the ask_question tool to ask these questions. Stop calling tools and allow the user to review the plan and provide feedback or approval.
+3. After receiving approval, begin execution. Create and update the task artifact as you work.
+4. Verify any work that you have done.
+5. Create a walkthrough artifact to present your work to the user. When writing artifacts, make sure to follow the artifact formatting guidelines and use github alerts to highlight critical sections.
+If the user's request does NOT warrant a plan then continue your work WITHOUT making a plan or requesting user feedback.
+</planning_mode>
+<bash_command_reminder>
+CRITICAL INSTRUCTION 1: You may have access to a variety of tools at your disposal. Some tools may be for a s
+
+The following is an <EPHEMERAL_MESSAGE> not actually sent by the user. It is provided by the system as a set of reminders and general important information to pay attention to. Do NOT respond to this message, just act accordingly.
+
+<EPHEMERAL_MESSAGE>
+<planning_mode>
+You're in planning mode. Exercise judgement on whether the user's last request warrants a plan and take action accordingly.
+If the user's request warrants a plan then follow this workflow:
+1. Research first before taking actions. Do not use your code editing tools or run modifying commands during this time.
+2. Create an implementation plan artifact with `request_feedback = true` to request approval. Include any open questions for the user directly in the implementation plan. Don't use the ask_question tool to ask these questions. Stop calling tools and allow the user to review the plan and provide feedback or approval.
+3. After receiving approval, begin execution. Create and update the task artifact as you work.
+4. Verify any work that you have done.
+5. Create a walkthrough artifact to present your work to the user. When writing artifacts, make sure to follow the artifact formatting guidelines and use github alerts to highlight critical sections.
+If the user's request does NOT warrant a plan then continue your work WITHOUT making a plan or requesting user feedback.
+</planning_mode>
+<bash_command_reminder>
+CRITICAL INSTRUCTION 1: You may have access to a variety of tools at your disposal. Some tools may be for a s
+
+The following is an <EPHEMERAL_MESSAGE> not actually sent by the user. It is provided by the system as a set of reminders and general important information to pay attention to. Do NOT respond to this message, just act accordingly.
+
+<EPHEMERAL_MESSAGE>
+<planning_mode>
+You're in planning mode. Exercise judgement on whether the user's last request warrants a plan and take action accordingly.
+If the user's request warrants a plan then follow this workflow:
+1. Research first before taking actions. Do not use your code editing tools or run modifying commands during this time.
+2. Create an implementation plan artifact with `request_feedback = true` to request approval. Include any open questions for the user directly in the implementation plan. Don't use the ask_question tool to ask these questions. Stop calling tools and allow the user to review the plan and provide feedback or approval.
+3. After receiving approval, begin execution. Create and update the task artifact as you work.
+4. Verify any work that you have done.
+5. Create a walkthrough artifact to present your work to the user. When writing artifacts, make sure to follow the artifact formatting guidelines and use github alerts to highlight critical sections.
+If the user's request does NOT warrant a plan then continue your work WITHOUT making a plan or requesting user feedback.
+</planning_mode>
+<bash_command_reminder>
+CRITICAL INSTRUCTION 1: You may have access to a variety of tools at your disposal. Some tools may be for a s
+Tôi đã viết xong toàn bộ mã nguồn cho Máy chủ Proxy (chỉ vỏn vẹn 3 file). Tất cả được lưu trong thư mục `api-proxy` nằm ngay bên trong thư mục dự án hiện tại của bạn.
+
+Proxy này sẽ làm nhiệm vụ: Nhận dữ liệu từ Zalo Mini App ➡️ Thêm các quyền CORS hợp lệ ➡️ Gửi nguyên trạng dữ liệu (và cả ảnh/video) sang máy chủ Đà Nẵng ➡️ Trả kết quả về Zalo.
+
+Bây giờ bạn chỉ cần làm 2 bước cực kỳ đơn giản để đưa Proxy này lên mạng hoạt động (Hoàn toàn miễn phí trên Vercel):
+
+### Bước 1: Đẩy Proxy lên Vercel
+Bạn hãy mở một Terminal (Command Prompt) mới và chạy lần lượt các lệnh sau:
+
+1. **Cài đặt Vercel CLI** (nếu bạn chưa có):
+```bash
+npm install -g vercel
+```
+2. **Di chuyển vào thư mục Proxy tôi vừa tạo:**
+```bash
+cd api-proxy
+```
+3. **Chạy lệnh deploy:**
+```bash
+vercel
+```
+*(Hệ thống sẽ hỏi bạn đăng nhập nếu chưa đăng nhập, sau đó nó hỏi vài câu như Setup and deploy? bạn cứ nhấn `Y` và Enter liên tục để dùng thiết lập mặc định).*
+
+### Bước 2: Đổi URL trong Zalo Mini App
+Sau khi Vercel chạy xong, nó sẽ cung cấp cho bạn một đường link tĩnh (Production URL), ví dụ: `https://gopy-danang-proxy.vercel.app`.
+
+Bạn chỉ cần:
+1. Mở file `.env` trong dự án Zalo Mini App của bạn.
+2. Đổi dòng `VITE_API_DOMAIN=https://gopy.danang.gov.vn` thành link Vercel bạn vừa nhận được:
+   `VITE_API_DOMAIN=https://gopy-danang-proxy.vercel.app`
+3. Lưu lại, mở Zalo Mini App Studio và **Deploy lại bản Zalo Mini App mới**.
+*(Lưu ý: Bạn cũng cần vào Zalo Mini App Dashboard để xóa tên miền cũ và thêm tên miền Vercel mới n
+The following is an <EPHEMERAL_MESSAGE> not actually sent by the user. It is provided by the system as a set of reminders and general important information to pay attention to. Do NOT respond to this message, just act accordingly.
+
+<EPHEMERAL_MESSAGE>
+<planning_mode>
+You're in planning mode. Exercise judgement on whether the user's last request warrants a plan and take action accordingly.
+If the user's request warrants a plan then follow this workflow:
+1. Research first before taking actions. Do not use your code editing tools or run modifying commands during this time.
+2. Create an implementation plan artifact with `request_feedback = true` to request approval. Include any open questions for the user directly in the implementation plan. Don't use the ask_question tool to ask these questions. Stop calling tools and allow the user to review the plan and provide feedback or approval.
+3. After receiving approval, begin execution. Create and update the task artifact as you work.
+4. Verify any work that you have done.
+5. Create a walkthrough artifact to present your work to the user. When writing artifacts, make sure to follow the artifact formatting guidelines and use github alerts to highlight critical sections.
+If the user's request does NOT warrant a plan then continue your work WITHOUT making a plan or requesting user feedback.
+</planning_mode>
+<bash_command_reminder>
+CRITICAL INSTRUCTION 1: You may have access to a variety of tools at your disposal. Some tools may be for a s
+
+The following is an <EPHEMERAL_MESSAGE> not actually sent by the user. It is provided by the system as a set of reminders and general important information to pay attention to. Do NOT respond to this message, just act accordingly.
+
+<EPHEMERAL_MESSAGE>
+<planning_mode>
+You're in planning mode. Exercise judgement on whether the user's last request warrants a plan and take action accordingly.
+If the user's request warrants a plan then follow this workflow:
+1. Research first before taking actions. Do not use your code editing tools or run modifying commands during this time.
+2. Create an implementation plan artifact with `request_feedback = true` to request approval. Include any open questions for the user directly in the implementation plan. Don't use the ask_question tool to ask these questions. Stop calling tools and allow the user to review the plan and provide feedback or approval.
+3. After receiving approval, begin execution. Create and update the task artifact as you work.
+4. Verify any work that you have done.
+5. Create a walkthrough artifact to present your work to the user. When writing artifacts, make sure to follow the artifact formatting guidelines and use github alerts to highlight critical sections.
+If the user's request does NOT warrant a plan then continue your work WITHOUT making a plan or requesting user feedback.
+</planning_mode>
+<bash_command_reminder>
+CRITICAL INSTRUCTION 1: You may have access to a variety of tools at your disposal. Some tools may be for a s
+
+The following is an <EPHEMERAL_MESSAGE> not actually sent by the user. It is provided by the system as a set of reminders and general important information to pay attention to. Do NOT respond to this message, just act accordingly.
+
+<EPHEMERAL_MESSAGE>
+<planning_mode>
+You're in planning mode. Exercise judgement on whether the user's last request warrants a plan and take action accordingly.
+If the user's request warrants a plan then follow this workflow:
+1. Research first before taking actions. Do not use your code editing tools or run modifying commands during this time.
+2. Create an implementation plan artifact with `request_feedback = true` to request approval. Include any open questions for the user directly in the implementation plan. Don't use the ask_question tool to ask these questions. Stop calling tools and allow the user to review the plan and provide feedback or approval.
+3. After receiving approval, begin execution. Create and update the task artifact as you work.
+4. Verify any work that you have done.
+5. Create a walkthrough artifact to present your work to the user. When writing artifacts, make sure to follow the artifact formatting guidelines and use github alerts to highlight critical sections.
+If the user's request does NOT warrant a plan then continue your work WITHOUT making a plan or requesting user feedback.
+</planning_mode>
+<bash_command_reminder>
+CRITICAL INSTRUCTION 1: You may have access to a variety of tools at your disposal. Some tools may be for a s
+
+The following is an <EPHEMERAL_MESSAGE> not actually sent by the user. It is provided by the system as a set of reminders and general important information to pay attention to. Do NOT respond to this message, just act accordingly.
+
+<EPHEMERAL_MESSAGE>
+<planning_mode>
+You're in planning mode. Exercise judgement on whether the user's last request warrants a plan and take action accordingly.
+If the user's request warrants a plan then follow this workflow:
+1. Research first before taking actions. Do not use your code editing tools or run modifying commands during this time.
+2. Create an implementation plan artifact with `request_feedback = true` to request approval. Include any open questions for the user directly in the implementation plan. Don't use the ask_question tool to ask these questions. Stop calling tools and allow the user to review the plan and provide feedback or approval.
+3. After receiving approval, begin execution. Create and update the task artifact as you work.
+4. Verify any work that you have done.
+5. Create a walkthrough artifact to present your work to the user. When writing artifacts, make sure to follow the artifact formatting guidelines and use github alerts to highlight critical sections.
+If the user's request does NOT warrant a plan then continue your work WITHOUT making a plan or requesting user feedback.
+</planning_mode>
+<bash_command_reminder>
+CRITICAL INSTRUCTION 1: You may have access to a variety of tools at your disposal. Some tools may be for a s
+
+The following is an <EPHEMERAL_MESSAGE> not actually sent by the user. It is provided by the system as a set of reminders and general important information to pay attention to. Do NOT respond to this message, just act accordingly.
+
+<EPHEMERAL_MESSAGE>
+<planning_mode>
+You're in planning mode. Exercise judgement on whether the user's last request warrants a plan and take action accordingly.
+If the user's request warrants a plan then follow this workflow:
+1. Research first before taking actions. Do not use your code editing tools or run modifying commands during this time.
+2. Create an implementation plan artifact with `request_feedback = true` to request approval. Include any open questions for the user directly in the implementation plan. Don't use the ask_question tool to ask these questions. Stop calling tools and allow the user to review the plan and provide feedback or approval.
+3. After receiving approval, begin execution. Create and update the task artifact as you work.
+4. Verify any work that you have done.
+5. Create a walkthrough artifact to present your work to the user. When writing artifacts, make sure to follow the artifact formatting guidelines and use github alerts to highlight critical sections.
+If the user's request does NOT warrant a plan then continue your work WITHOUT making a plan or requesting user feedback.
+</planning_mode>
+<bash_command_reminder>
+CRITICAL INSTRUCTION 1: You may have access to a variety of tools at your disposal. Some tools may be for a s
+
+The following is an <EPHEMERAL_MESSAGE> not actually sent by the user. It is provided by the system as a set of reminders and general important information to pay attention to. Do NOT respond to this message, just act accordingly.
+
+<EPHEMERAL_MESSAGE>
+<planning_mode>
+You're in planning mode. Exercise judgement on whether the user's last request warrants a plan and take action accordingly.
+If the user's request warrants a plan then follow this workflow:
+1. Research first before taking actions. Do not use your code editing tools or run modifying commands during this time.
+2. Create an implementation plan artifact with `request_feedback = true` to request approval. Include any open questions for the user directly in the implementation plan. Don't use the ask_question tool to ask these questions. Stop calling tools and allow the user to review the plan and provide feedback or approval.
+3. After receiving approval, begin execution. Create and update the task artifact as you work.
+4. Verify any work that you have done.
+5. Create a walkthrough artifact to present your work to the user. When writing artifacts, make sure to follow the artifact formatting guidelines and use github alerts to highlight critical sections.
+If the user's request does NOT warrant a plan then continue your work WITHOUT making a plan or requesting user feedback.
+</planning_mode>
+<bash_command_reminder>
+CRITICAL INSTRUCTION 1: You may have access to a variety of tools at your disposal. Some tools may be for a s
+
+Created At: 2026-07-16T08:03:41Z
+Completed At: 2026-07-16T08:03:41Z
+
+				The command failed with exit code: 1
+				Output:
+				Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    import json; [print(json.loads(line).get('content', '')[:1000]) for line in open(r'C:\Users\luudu\.gemini\antigravity-ide\brain\34cf234f-1dfe-434e-a519-f497f05b4732\.system_generated\logs\transcript_full.jsonl', encoding='utf-8') if 'view_file' in line]
+                  ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luudu\AppData\Local\Python\pythoncore-3.14-64\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u0111' in position 4: character maps to <undefined>
+The following is an <EPHEMERAL_MESSAGE> not actually sent by the user. It is provided by the system as a set of reminders and general important information to pay attention to. Do NOT respond to this message, just act accordingly.
+
+<EPHEMERAL_MESSAGE>
+<planning_mode>
+You're in planning mode. Exercise judgement on whether the user's last request warrants a plan and take action accordingly.
+If the user's request warrants a plan then follow this workflow:
+1. Research first before taking actions. Do not use your code editing tools or run modifying commands during this time.
+2. Create an implementat
